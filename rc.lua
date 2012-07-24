@@ -2,7 +2,7 @@
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
-_
+require("beautiful") -- Theme handling library
 require("naughty") -- Notification library
 require("vicious") -- Widget Library
 
@@ -86,22 +86,20 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
-myarchmenu = {
-   { "gedit", gedit },
-   { "firefox", firefox },
-   { "google chrome", google-chrome},
-   { "pidgin", pidgin },
-   { "skype", skype },
-   { "keepass", keepassx },
-   { "gtk appearance", lxappearance },
-   { "clementine", clementine },
-   { "google music manager", google-musicmanager },
-   { "gparted", gksu gparted }
-}
+--myarchmenu = {
+--   { "gedit", gedit },
+--   { "firefox", firefox },
+--   { "google chrome", google-chrome},
+--   { "pidgin", pidgin },
+--   { "skype", skype },
+--   { "keepass", keepassx },
+--   { "gtk appearance", lxappearance },
+--   { "clementine", clementine },
+--   { "google music manager", google-musicmanager }
+--}
 
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-
                                     { "open terminal", terminal }
                                   }
                         })
