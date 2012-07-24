@@ -116,17 +116,6 @@ netwidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 3)
 
--- Volume widget
---volumewigdet = awful.widget.progressbar()
---volumewidget:set_width(12)
---volumewidget:set_height(20)
---volumewidget:set_vertical(true)
---volumewidget:set_background_color('#000000')
---volumewidget:set_border_color('#999933')
---volumewidget:set_color('green')
---volumewidget:set_gradient_colors({'red','yellow', 'green'})
---vicious.register(volumewidget, vicious.widgets.volume, '$1', 1, 'Master')
-
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" }) 
 -- BETTER TEXT CLOCK
@@ -211,7 +200,6 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         mytextclock,
         netwidget,
-        --volumewidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
