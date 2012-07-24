@@ -101,7 +101,7 @@ myarchmenu = {
 
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-				    { "arch", myarchmenu },
+
                                     { "open terminal", terminal }
                                   }
                         })
