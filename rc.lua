@@ -2,7 +2,7 @@
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
-require("beautiful") -- Theme handling library
+_
 require("naughty") -- Notification library
 require("vicious") -- Widget Library
 
@@ -131,7 +131,7 @@ vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" }) 
-`-- BETTER TEXT CLOCK
+-- BETTER TEXT CLOCK
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -237,13 +237,13 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
 
-   --volume
-   awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end),
-   awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.5%-") end),
-   awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end),
-   awful.key({ }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight -inc 5") end),
-   awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end),
-   awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
+    --volume
+    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end),
+    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.5%-") end),
+    awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end),
+    awful.key({ }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight -inc 5") end),
+    awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end),
+    awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -383,18 +383,6 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags screen 1.
-    { rule = { class = "firefox" },
-      properties = { tag = tags[1] } },
-    -- Set Firefox to always map on tags screen 2.
-    { rule = { class = "urxvtc" },
-      properties = { tag = tags[2] } },
-    -- Set urxvt to always map on tags screen 3.
-    { rule = { class = "pidgin" },
-      properties = { tag = tags[3] } },
-    -- Set Firefox to always map on tags screen 4.
-    { rule = { class = "banshee" },
-      properties = { tag = tags[4] } },
 
 }
 -- }}}

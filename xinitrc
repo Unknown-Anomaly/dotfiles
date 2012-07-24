@@ -9,6 +9,9 @@ export _JAVA_AWT_WM_NONREPARENTING
 # Correct urxvt themeing.
 xrdb -merge ~/.xresources &
 
+# Set the correct keymap
+setxkbmap dvorak &
+
 # Font setup
 xset +fp /usr/share/fonts/local
 xset fp rehash
@@ -16,6 +19,7 @@ xset fp rehash
 #Start pulseaudio for x11
 start-pulseaudio-x11
 
+#Start daemons and managers
 xfce4-power-manager & #power
 thunar --daemon & #thunar daemon
 urxvtd -q -o -f & #urxvt daemon
@@ -28,14 +32,12 @@ sleep 8 && dropboxd & #dropbox
 
 sleep 2 && wicd-gtk -t & #wcid gtk daemon, only tray
 sleep 2 && conky -q & #conk
-sleep 4 && urxvtc & $starts a terminal
+sleep 4 && urxvtc & #starts a terminal
 
 # start programs
 sleep 8 && firefox & # Opens firefox web browser
 sleep 6 && pidgin & # Pidgin IM client
-#sleep 10 && banshee & # Banshee music/media client
-
 # -- }}
 
 # -- {{ Start the WM }} 
-exec awesome
+exec awesome > ~/.cache/awesome/stdout 2> ~/.cache/awesome/stderr
