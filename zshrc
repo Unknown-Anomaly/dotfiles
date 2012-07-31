@@ -31,8 +31,7 @@ man() {
 # goo.gl/rQBxa
 if [ x$DISPLAY != x ]
 then
-	command -v fortune -as | command -v cowsay | command -v lolcat
+	fortune | ponysay
 else
-	fortune -as | cowsay
+	fortune | cowsay
 fi
-

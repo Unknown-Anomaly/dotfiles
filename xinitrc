@@ -32,11 +32,11 @@ sleep 8 && dropboxd & #dropbox
 
 sleep 2 && wicd-gtk -t & #wcid gtk daemon, only tray
 sleep 2 && conky -q & #conk
-sleep 4 && urxvtc & #starts a terminal
+#sleep 4 && urxvtc & #starts a terminal
 
 # start programs
-sleep 8 && firefox & # Opens firefox web browser
-sleep 6 && pidgin & # Pidgin IM client
+#sleep 8 && firefox & # Opens firefox web browser
+#sleep 6 && pidgin & # Pidgin IM client
 # -- }}
 
 # -- {{ Start the WM }} 

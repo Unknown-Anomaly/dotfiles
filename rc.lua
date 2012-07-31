@@ -21,7 +21,7 @@ do
     awesome.add_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
-        in_error = true
+	
 
         naughty.notify({ preset = naughty.config.presets.critical,
                          title = "Oops, an error happened!",
@@ -86,18 +86,17 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
---myarchmenu = {
---   { "gedit", gedit },
---   { "firefox", firefox },
---   { "google chrome", google-chrome},
---   { "pidgin", pidgin },
---   { "skype", skype },
---   { "keepass", keepassx },
---   { "gtk appearance", lxappearance },
---   { "clementine", clementine },
---   { "google music manager", google-musicmanager }
---}
 
+--myarchmenu = { { "gedit", gedit },
+--               { "firefox", firefox },
+--               { "google chrome", google-chrome },
+--               { "pidgin", pidgin },
+--               { "skype", skype },
+--               { "keepass", keepassx },
+--               { "gtk appearance", lxappearance },
+--               { "clementine", clementine },
+--               { "google music manager", google-musicmanager }
+--             }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal }
@@ -106,6 +105,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
+
 -- }}}
 
 -- {{{ Wibox
@@ -157,6 +157,7 @@ mytasklist.buttons = awful.util.table.join(
                                                   instance = nil
                                               else
                                                   instance = awful.menu.clients({ width=250 })
+
                                               end
                                           end),
                      awful.button({ }, 4, function ()
@@ -403,4 +404,24 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+--function run_once(prg,arg_string,pname,screen)
+--    if not prg then
+--        do return nil end
+--    end
+--
+--    if not pname then
+--       pname = prg
+--    end
+--
+--    if not arg_string then 
+--        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
+--    else
+--        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
+--    end
+--end
+
+--run_once("firefox",nil,nil,1)
+--run_once("pidgin",nil,nil,2)
+--run_once("uxrvtc",nil,nil,2)
 
