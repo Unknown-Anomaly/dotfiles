@@ -13,11 +13,7 @@ xrdb -merge ~/.Xresources &
 awsetbg ~/Pictures/DesktopImg.png &
 
 # Set the correct keymap
-<<<<<<< HEAD
 # setxkbmap dvorak &
-=======
-#setxkbmap dvorak &
->>>>>>> be0fa956b01f8d8e5f233c968478c6eea0445b77
 
 # Font setup
 xset +fp /usr/share/fonts/local
