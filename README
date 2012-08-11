@@ -1,0 +1,20 @@
+This git repo contains some files I tweak every now and then to get a better experience.
+
+aliases contains a set of aliases I use in terminal to perform everyday tasks
+
+bashrc is my rc file for bash, it also redirects to aliases
+
+conkyrc is my rc file for conky, also contains my conky theme elements.
+
+rc.lua is my awesome config file, theme is not included.
+
+updatemirriors.sh is a sh script I use to get the best and fastest mirrors for pacman.
+
+vimrc is my rc for vim.
+
+xinitrc is my xinit script, also contains programs I auto-start.
+
+zshrc is my rc file for zsh, it also redirects to aliases
+
+#Written in vim
+
