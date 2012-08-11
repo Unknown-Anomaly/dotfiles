@@ -223,18 +223,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     --system commands
-    awful.key({ "Control", modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
-    awful.key({ "Control", modkey }, "h", function () awful.util.spawn("gksudo s2ram") end),
-    awful.key({ }, "Print",               function () awful.util.spawn("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'") end),
+    awful.key({ "Control", modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end), -- Lock Screen
+    awful.key({ "Control", modkey }, "s", function () awful.util.spawn("gksudo pm-suspend-hybrid") end), -- Suspend
+    -- awful.key({ "Control", modkey }, "h", function () awful.util.spawn("gksudo pm-hibernate") end), -- Hibernate, doesn't work completely video is wierd after restart
+    awful.key({ }, "Print",               function () awful.util.spawn("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'") end), -- Print Screen
 
     --volume
-    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end),
-    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.5%-") end),
-    awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end),
+    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end), -- Raise volume
+    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.5%-") end), -- Lower volume
+    awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end), -- Toggle mute
 
     --keyboard blacklight
-    awful.key({ }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight -inc 5") end),
-    awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end),
+    awful.key({ }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight -inc 5") end), -- increase
+    awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end), -- decrease
 
     --optical drive
     awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
