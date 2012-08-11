@@ -50,7 +50,7 @@ alias hist='history | grep $1'      # requires an argument
 #alias pg='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
 #alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"
 #alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
-alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e '$f ~/Pictures/Screenshots'"
+alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
 
 # privileged access
 if [ $UID -ne 0 ]; then
@@ -119,6 +119,7 @@ alias lm='la | less'
 # pacman/packer
 alias pcm='sudo pacman-color'
 alias pcr='packer --noedit --auronly'
+alias pci='packer -S'
 alias search='packer -Ss'
 
 # pacman aliases (if applicable, replace 'pacman' with 'yaourt'/'pacaur'/whatever)

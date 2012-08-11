@@ -225,6 +225,7 @@ globalkeys = awful.util.table.join(
     --system commands
     awful.key({ "Control", modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ "Control", modkey }, "h", function () awful.util.spawn("gksudo s2ram") end),
+    awful.key({ }, "Print",               function () awful.util.spawn("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'") end),
 
     --volume
     awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end),
