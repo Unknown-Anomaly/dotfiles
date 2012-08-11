@@ -10,7 +10,7 @@ export _JAVA_AWT_WM_NONREPARENTING
 xrdb -merge ~/.xresources &
 
 # Set the correct keymap
-setxkbmap dvorak &
+#setxkbmap dvorak &
 
 # Font setup
 xset +fp /usr/share/fonts/local
