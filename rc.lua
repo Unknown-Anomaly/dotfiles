@@ -68,8 +68,8 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-    names = { "www", "term", "chat", "media", 5, 6, 7, 8, 9 },
-    layout = { layouts[1], layouts[10], layouts[1], layouts[10], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
+    names = { "www", "term", "chat", "media", 5, 6, 7 },
+    layout = { layouts[1], layouts[12], layouts[3], layouts[10], layouts[1], layouts[1], layouts[1] },
 }
 
 for s = 1, screen.count() do
@@ -222,14 +222,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
-    awful.key({ modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    --system commands
+    awful.key({ "Control", modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ "Control", modkey }, "h", function () awful.util.spawn("gksudo s2ram") end),
 
     --volume
     awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end),
     awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.5%-") end),
     awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end),
+
+    --keyboard blacklight
     awful.key({ }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight -inc 5") end),
     awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end),
+
+    --optical drive
     awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
 
     awful.key({ modkey,           }, "j",
