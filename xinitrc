@@ -40,7 +40,11 @@ sleep 4 && urxvtc & #starts a terminal
 # start programs
 sleep 8 && firefox & # Opens firefox web browser
 sleep 6 && pidgin & # Pidgin IM client
+
 # -- }}
 
-# -- {{ Start the WM }} 
+# -- {{ Start the WM
+
 exec awesome > ~/.cache/awesome/stdout 2> ~/.cache/awesome/stderr
+
+# -- }} 
