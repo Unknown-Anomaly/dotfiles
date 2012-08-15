@@ -76,11 +76,12 @@ case $backup in
 				cp -R $HOME/.minecraft/ $HOME/Dropbox/
 				
 				echo "Saved in $HOME/Dropbox/.minecraft and found at www.Dropbox.com"
-				notify-send -t 750 "Backup finished, User input required for login details."
+				notify-send -t 1000 "Backup finished."
 				;;
 
 			[Nn] ) echo -e "\nLocal Backup option."
 				desc=
+				notify-send -t 1000 "Script requires input."
 				echo -n "Please give a description for this backup [Enter for none]: "
 				read desc
 				Tempdate=`date +%Y"_"%m"_"%d"-"%R"-"%a"-"%b`
@@ -94,7 +95,7 @@ case $backup in
 					echo "Saved at $localDir/${Tempdate} - ( ... )"
 				fi
 				echo "Finished Backing up."
-				notify-send -t 750 "Backup finished, User input required for login details."
+				notify-send -t 1000 "Backup finished."
 				;;
 
 			[Bb] ) echo "Copying Minecraft to online storage."
@@ -117,11 +118,11 @@ case $backup in
                                         echo "Saved at $localDir/${Tempdate} - ( ... )"
                                 fi
                                 echo "Finished Backing up."
-                                notify-send -t 750 "Backup finished, User input required for login details."
+                                notify-send -t 1000 "Backup finished."
 				;;
 
 			[Qq] ) echo "Quitting Backup Selector."
-				notify-send -t 750 "Skipping Backup, User input required for login details."
+				notify-send -t 1000 "Skipping Backup."
 				;;
 
 			* ) echo "Required input is Y,n,b, or Q to quit"
@@ -138,12 +139,12 @@ case $backup in
 	* ) echo "Required input is Y and n."
 		exit 1
 		;;
-
+#
 esac
 
-user=
-password=
-server=
+#user=
+#password=
+#server=
 
 # Maybe save a default user, and last used server?
 #
@@ -151,46 +152,48 @@ server=
 # if "last" for server use last used server input.
 # figure out how to encode/protect the password.
 
-echo -e -n "\nDo you want to customize login? [Y/n]: "
-read loginOption
-case $loginOption in 
-	[Yy] ) echo -e "Note:\nIf you are entering a password you MUST enter in a username.\n\nThis saves that last known user and server.\nEnter nothing for last used user."
-		# Username Entry #
-		echo -n "Username: "
-		read user
-	
-		# Password Entry #
-		stty -echo
-		echo -e "\nYour password will not be saved, and will be obfuscated."
-		echo -n "Password: "
-		read password
-		stty echo
-	
-		# Server Entry #
-		echo -e "\nFor last known server enter 'last'."
-		echo -n "Server: "
-		read server
-	
-		echo -n "Will run minecraft with user: ${user}"
-		if [ "${server}" != "" ]; then
-			echo ", on server: ${server}."
-			notify-send -t 500 "Starting Minecraft with user: ${user}, on server: ${server}."
-		else
-			echo "."
-			notify-send -t 500 "Starting Minecraft with user: ${user}."
-		fi
-		;;
+#echo -e -n "\nDo you want to customize login? [Y/n]: "
+#read loginOption
+#case $loginOption in 
+#	[Yy] ) echo -e "Note:\nIf you are entering a password you MUST enter in a username.\n\nThis saves that last known user and server.\nEnter nothing for last used user."
+#		# Username Entry #
+#		echo -n "Username: "
+#		read user
+#	
+#		# Password Entry #
+#		stty -echo
+#		echo -e "\nYour password will not be saved, and will be obfuscated."
+#		echo -n "Password: "
+#		read password
+#		stty echo
+#	
+#		# Server Entry #
+#		echo -e "\nFor last known server enter 'last'."
+#		echo -n "Server: "
+#		read server
+#	
+#		echo -n "Will run minecraft with user: ${user}"
+#		if [ "${server}" != "" ]; then
+#			echo ", on server: ${server}."
+#			notify-send -t 500 "Starting Minecraft with user: ${user}, on server: ${server}."
+#		else
+#			echo "."
+#			notify-send -t 500 "Starting Minecraft with user: ${user}."
+#		fi
+#		;;
+#
+#	[Nn] ) echo -e "\n\nStarting Minecraft."
+#		notify-send -t 500 "Starting Minecraft."
+#		;;
+#
+#	* ) echo "Required input is Y and n."
+#		exit 1
+#		;;
+#
+#esac
 
-	[Nn] ) echo -e "\n\nStarting Minecraft."
-		notify-send -t 500 "Starting Minecraft."
-		;;
+notify-send -t 1000 "Starting Minecraft"
 
-	* ) echo "Required input is Y and n."
-		exit 1
-		;;
-
-esac
-
-java -jar -Xmx1024M -Xms512M  ~/Games/minecraft.jar ${user} ${password} ${server}
-# clear
+exec java -Xmx920M -Xms360M -jar ~/Games/minecraft.jar
+clear
 exit 0

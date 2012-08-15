@@ -53,14 +53,14 @@ layouts =
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
+    --awful.layout.suit.fair,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier
 }
 -- }}}
@@ -68,8 +68,8 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-    names = { "www", "term", "chat", "media", 5, 6, 7 },
-    layout = { layouts[1], layouts[12], layouts[3], layouts[10], layouts[1], layouts[1], layouts[1] },
+    names = { "Nt", "Tr", "IM", "Mc", "Wk" },
+    layout = { layouts[1], layouts[5], layouts[2], layouts[4], layouts[3] },
 }
 
 for s = 1, screen.count() do
@@ -87,18 +87,19 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
---myarchmenu = { { "gedit", gedit },
---               { "firefox", firefox },
---               { "google chrome", google-chrome },
---               { "pidgin", pidgin },
---               { "skype", skype },
---               { "keepass", keepassx },
---               { "gtk appearance", lxappearance },
---               { "clementine", clementine },
---               { "google music manager", google-musicmanager }
---             }
+myarchmenu = { { "gedit", "gedit" },
+               { "Firefox", "firefox" },
+               { "Google Chrome", "google-chrome" },
+               { "pidgin", "pidgin" },
+               { "skype", "skype" },
+               { "keepass", "keepassx" },
+               { "gtk appearance", "lxappearance" },
+               { "clementine", "clementine" },
+               { "google music manager", "google-musicmanager" }
+             }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "arch menu", myarchmenu },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -111,14 +112,15 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 
 --  Network usage widget
--- Initialize widget
 netwidget = widget({ type = "textbox" })
--- Register widget
-vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 3)
+vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" }) 
--- BETTER TEXT CLOCK
+mytextclockright = widget({ type = "textbox" })
+vicious.register(mytextclockright, vicious.widgets.date, " %T GMT%z ", 0.1)
+
+mytextclockleft = widget({ type = "textbox" })
+vicious.register(mytextclockleft, vicious.widgets.date, " %d/%m/%y ", 60)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -195,11 +197,12 @@ for s = 1, screen.count() do
         {
             mylauncher,
             mytaglist[s],
+	    mytextclockleft,
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+        mytextclockright,
         netwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],

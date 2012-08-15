@@ -4,12 +4,30 @@ HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
 
+# Is oh-my-zsh installed?
+if [ -d ~/.oh-my-zsh ]; then #this computer is awesome
+	# Path to your oh-my-zsh configuration
+	ZSH=$HOME/.oh-my-zsh
+	# Set name of the theme to load from ~/.oh-my-zsh/themes/
+	ZSH_THEME="simplyblue"
+	# Display red dots while waiting for completion
+	COMPLETION_WAITING_DOTS="true"
+	# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+	# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+	plugins=(archlinux gem git hub zsh-syntax-highlighting)
+	# Run oh my zsh
+	source $ZSH/oh-my-zsh.sh
+else #this computer sucks
+	echo "You don't have oh-my-zsh. You should get it!"
+fi
+
 # variables
 export EDITOR="vim"
-if [ x$DISPLAY != x ]
-then
-	export TERM="xterm-256color"
-fi
+
+# ssh
+#eval $(ssh-agent)
+#ssh-add
+#eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
 # aliases
 if [ -f ~/.aliases ]; then . ~/.aliases; fi
@@ -35,3 +53,5 @@ then
 else
 	fortune | cowsay
 fi
+
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
