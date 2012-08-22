@@ -1,50 +1,40 @@
+#!/bin/sh
+
 # ~/.xinitrc
 
-# --{{ Load config files and start background processes
-
-# Fix gui java apps displaying in awesome
-_JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_AWT_WM_NONREPARENTING
-
-# Correct urxvt themeing.
-xrdb -merge ~/.Xresources &
-
-# Set the background
-awsetbg ~/Pictures/DesktopImg.png &
-
-# Set the correct keymap
-# setxkbmap dvorak &
+wm_bin="$1"
 
 # Font setup
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-#Start pulseaudio for x11
-start-pulseaudio-x11
+# Correct urxvt themeing.
+xrdb -merge ~/.Xresources &
 
 #Start daemons and managers
+start-pulseaudio-x11
 xfce4-power-manager & #power
 thunar --daemon & #thunar daemon
 urxvtd -q -o -f & #urxvt daemon
 xscreensaver -no-splash & #screen lock
 sleep 8 && dropboxd & #dropbox
 
-# -- }}
-
-# -- {{ Start the GUI programs/daemons
-
-sleep 2 && wicd-gtk -t & #wcid gtk daemon, only tray
-sleep 2 && conky -q & #conk
-sleep 4 && urxvtc & #starts a terminal
-
-# start programs
-sleep 8 && firefox & # Opens firefox web browser
-sleep 6 && pidgin & # Pidgin IM client
-
-# -- }}
-
-# -- {{ Start the WM
-
-exec awesome > ~/.cache/awesome/stdout 2> ~/.cache/awesome/stderr
-
-# -- }} 
+if [[ ${wm_bin} = "awesome" ]]; then
+        # Fix gui java apps displaying in awesome
+        _JAVA_AWT_WM_NONREPARENTING=1
+        export _JAVA_AWT_WM_NONREPARENTING
+        
+        # Set the background
+        awsetbg ~/Pictures/DesktopImg.png &
+        
+        sleep 2 && wicd-gtk -t & #wcid gtk daemon, only tray
+        sleep 2 && conky -q & #conky
+        sleep 4 && urxvtc & #starts a terminal
+        
+        # start programs
+        sleep 6 && pidgin & # Pidgin IM client
+	
+elif [[ ${wm_bin} = "openbox" ]]; then
+	sleep 5 && urxvtc & starts a terminal
+fi
+exec ${wm_bin} > ~/.cache/wm_stdout 2> ~/.cache/wm_stderr

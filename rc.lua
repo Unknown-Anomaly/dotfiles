@@ -117,7 +117,7 @@ vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 
 
 -- Create a textclock widget
 mytextclockright = widget({ type = "textbox" })
-vicious.register(mytextclockright, vicious.widgets.date, " %T GMT%z ", 0.1)
+vicious.register(mytextclockright, vicious.widgets.date, " %T GMT %z ", 0.1)
 
 mytextclockleft = widget({ type = "textbox" })
 vicious.register(mytextclockleft, vicious.widgets.date, " %d/%m/%y ", 60)
@@ -241,7 +241,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end), -- decrease
 
     --optical drive
-    awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
+    --awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
 
     awful.key({ modkey,           }, "j",
         function ()

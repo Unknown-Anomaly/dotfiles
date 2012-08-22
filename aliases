@@ -60,9 +60,6 @@ if [ $UID -ne 0 ]; then
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo halt'
-    alias update='sudo packer -Su'
-    alias upgrade='sudo packer -Syu'
-    #alias netcfg='sudo netcfg2'
 fi
 
 # safety features
@@ -117,9 +114,11 @@ alias lm='la | less'
 #alias lap="ls++ -A"
 
 # pacman/packer
-alias pcr='packer --noedit --auronly'
-alias pci='packer -S'
+alias pacinstall='packer -S'
 alias search='packer -Ss'
+alias searchaur='packer -Ss --auronly'
+alias searchpac='pacman -Ss'
+alias upgrade='packer -Syu'
 
 # pacman aliases (if applicable, replace 'pacman' with 'yaourt'/'pacaur'/whatever)
 #alias pac='pacman -S'      # default action     - install one or more packages

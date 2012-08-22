@@ -49,9 +49,10 @@ man() {
 # goo.gl/rQBxa
 if [ x$DISPLAY != x ]
 then
-	fortune | ponysay
+	#fortune | ponysay
+	fortune
 else
-	fortune | cowsay
+	#fortune | cowsay
 fi
 
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
