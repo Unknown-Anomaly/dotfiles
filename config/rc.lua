@@ -122,6 +122,13 @@ vicious.register(mytextclockright, vicious.widgets.date, " %T GMT %z ", 0.1)
 mytextclockleft = widget({ type = "textbox" })
 vicious.register(mytextclockleft, vicious.widgets.date, " %d/%m/%y ", 60)
 
+volume_widget = widget({ type = "textbox" })
+--volume_widget:set_color("#0099CC")
+vicious.register(volume_widget, vicious.widgets.volume, " [$1]", 2, "Master")
+
+-- sep = widget({ type = "textbox" })
+-- vicious.register(sep, vicious.widgets.textbox, " " )
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
@@ -165,7 +172,7 @@ mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 4, function ()
                                               awful.client.focus.byidx(1)
                                               if client.focus then client.focus:raise() end
-                                          end),
+				          end),
                      awful.button({ }, 5, function ()
                                               awful.client.focus.byidx(-1)
                                               if client.focus then client.focus:raise() end
@@ -203,6 +210,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclockright,
+	volume_widget,
         netwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
@@ -232,8 +240,10 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Print",               function () awful.util.spawn("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'") end), -- Print Screen
 
     --volume
-    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.5%+") end), -- Raise volume
-    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.5%-") end), -- Lower volume
+    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 1.2%+") end), -- Raise volume
+    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 1.2%-") end), -- Lower volume
+    -- awful.key({ "Control", "Alt" }, "Up",      function () awful.util.spawn("amixer set Master 1.2%+") end), -- Raise volume
+    -- awful.key({ "Control", "Alt" }, "Down",    function () awful.util.spawn("amixer set Master 1.2%-") end), -- Lower volume
     awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end), -- Toggle mute
 
     --keyboard blacklight

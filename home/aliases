@@ -2,7 +2,6 @@
 #alias NICKNAME='COMMAND'
 
 # color support
-alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -99,7 +98,7 @@ else
 fi
 
 # ls
-alias ls='ls -hF --color=auto --group-directories-first'
+alias ls='pwd && ls -hF --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -lh'
 alias l='ls -alh'
