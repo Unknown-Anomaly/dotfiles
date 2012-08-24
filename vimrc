@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
+Bundle 'altercation/vim-colors-solarized'
 "Bundle 'vim-scripts/taglist.vim'
 Bundle 'mattn/zencoding-vim'
 " vim-scripts repos
