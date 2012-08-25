@@ -35,9 +35,7 @@ own_window_transparent yes
 # Text alignment, other possible values are commented
 alignment top_left
 # Gap between borders of screen and text
-#gap_x 1250 #For 1600x1200 display
-#gap_x 1100 #For 1366x768 display
-gap_x 750 #For 800x600 display
+gap_x 760
 gap_y 15
 total_run_times 0
 
@@ -46,7 +44,7 @@ total_run_times 0
  
 TEXT
 
-${color grey}Today is $alignr${exec date +'Day '%j' '%a' '%b''%e'/'%m'/'%Y' '%Z}
+${color grey}Today is $alignr${exec date +'Day '%j' '%a' '%b' '%e'/'%m'/'%Y' '%Z}
 ${color yellow}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr${exec whoami}@$nodename
 Distro$alignr A $sysname with $kernel on $machine
