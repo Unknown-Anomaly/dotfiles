@@ -84,6 +84,7 @@ myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "update", terminal .. " -e sudo packer -Syu" },
+   { "suspend", "gksudo pm-suspend" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
