@@ -19,6 +19,7 @@ alias ping='ping -c 6'
 
 # shortcuts
 alias c='clear'
+alias ccd='cd ~ && clear'
 alias e='exit'
 alias ka='killall'
 alias x='startx'
