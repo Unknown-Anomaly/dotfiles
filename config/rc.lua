@@ -240,10 +240,10 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Print",               function () awful.util.spawn("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'") end), -- Print Screen
 
     --volume
-    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 1.2%+") end), -- Raise volume
-    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 1.2%-") end), -- Lower volume
-    -- awful.key({ "Control", "Alt" }, "Up",      function () awful.util.spawn("amixer set Master 1.2%+") end), -- Raise volume
-    -- awful.key({ "Control", "Alt" }, "Down",    function () awful.util.spawn("amixer set Master 1.2%-") end), -- Lower volume
+    awful.key({ }, "XF86AudioRaiseVolume",     function () awful.util.spawn("amixer set Master 2.25%+") end), -- Raise volume
+    awful.key({ }, "XF86AudioLowerVolume",     function () awful.util.spawn("amixer set Master 2.25%-") end), -- Lower volume
+    -- awful.key({ "Control", "Alt" }, "Up",      function () awful.util.spawn("amixer set Master 2.25%+") end), -- Raise volume
+    -- awful.key({ "Control", "Alt" }, "Down",    function () awful.util.spawn("amixer set Master 2.25%-") end), -- Lower volume
     awful.key({ }, "XF86AudioMute",            function () awful.util.spawn("amixer set Master toggle") end), -- Toggle mute
 
     --keyboard blacklight

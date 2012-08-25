@@ -46,8 +46,8 @@ TEXT
 
 ${color grey}Today is $alignr${exec date +'Day '%j' '%a' '%b' '%e'/'%m'/'%Y' '%Z}
 ${color yellow}SYSTEM ${hr 2}${color grey}
-Hostname:$alignr${exec whoami}@$nodename
-Distro$alignr A $sysname with $kernel on $machine
+Hostname:$alignr$nodename
+Distro$alignr$kernel on $machine
 System Uptime:$alignr $uptime
 Battery:$alignr${exec acpi | ack -o 'Discharging|Full|Charging'} at $battery_percent%
 ${color yellow}CPU ${hr 2}${color grey}
