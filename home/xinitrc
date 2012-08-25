@@ -36,7 +36,7 @@ if [[ ${wm_bin} = "awesome" ]]; then
 	
 elif [[ ${wm_bin} = "openbox" ]]; then
 	sleep 5 && urxvtc & starts a terminal
-elif [[ ${wm_bin} = "fluxbox' ]]; then
+elif [[ ${wm_bin} = "fluxbox" ]]; then
 	sleep 3 && urxvtc & starts a terminal
 fi
 exec ${wm_bin} > ~/.cache/wm_stdout 2> ~/.cache/wm_stderr
