@@ -69,7 +69,7 @@ layouts =
 -- Define a tag table which hold all screen tags.
 tags = {
     names = { "Nt", "Tr", "IM", "Mc", "Wk" },
-    layout = { layouts[1], layouts[5], layouts[2], layouts[4], layouts[3] },
+    layout = { layouts[1], layouts[5], layouts[2], layouts[4], layouts[4] },
 }
 
 for s = 1, screen.count() do
@@ -83,23 +83,44 @@ end
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
+   { "update", terminal .. " -e sudo packer -Syu" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
 
-myarchmenu = { { "gedit", "gedit" },
-               { "Firefox", "firefox" },
-               { "Google Chrome", "google-chrome" },
-               { "pidgin", "pidgin" },
-               { "skype", "skype" },
-               { "keepass", "keepassx" },
-               { "gtk appearance", "lxappearance" },
-               { "clementine", "clementine" },
-               { "google music manager", "google-musicmanager" }
-             }
+myarchmenu = {
+	{ "Internet", myarchmenunet },
+	{ "Media", myarchmenumedia },
+	{ "Tools", myarchmenutools }
+}
+
+myarchmenunet = {
+	{ "Firefox", "firefox" },
+	{ "Chrome", "google-chrome" },
+ 	{ "Pidgin", "pidgin" },
+	{ "Skype", "skype" },
+	{ "IRSSI", terminal .. " -e irssi" }
+}
+myarchmenumedia = {
+	{ "Google Music", "google-musicmanager" },
+	{ "Clementine", "clementine" },
+	{ "LMMS", "lmms" },
+	{ "GIMP", "gimp" }
+}
+myarchmenutools = {
+	{ "Thunar", "thunar" },
+	{ "Ranger", terminal .. " -e ranger" },
+	{ "Gedit", "gedit" },
+	{ "GTK settings", "lxappearance" },
+	{ "Xscreen", "xscreensaver-demo" },
+	{ "Gparted", "gksudo gparted" }
+}
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "arch menu", myarchmenu },
+                                    -- { "Arch Menu", myarchmenu },
+                                    { "Internet", myarchmenunet },
+				    { "Media", myarchmenumedia },
+				    { "Tools", myarchmenutools },
                                     { "open terminal", terminal }
                                   }
                         })
