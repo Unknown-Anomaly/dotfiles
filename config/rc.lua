@@ -4,7 +4,7 @@ require("awful.autofocus")
 require("awful.rules")
 require("beautiful") -- Theme handling library
 require("naughty") -- Notification library
-require("vicious") -- Widget Library
+vicious = require("vicious") -- Widget Library
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -118,7 +118,6 @@ myarchmenutools = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    -- { "Arch Menu", myarchmenu },
                                     { "Internet", myarchmenunet },
 				    { "Media", myarchmenumedia },
 				    { "Tools", myarchmenutools },
@@ -147,9 +146,6 @@ vicious.register(mytextclockleft, vicious.widgets.date, " %d/%m/%y ", 60)
 volume_widget = widget({ type = "textbox" })
 --volume_widget:set_color("#0099CC")
 vicious.register(volume_widget, vicious.widgets.volume, " [$1]", 2, "Master")
-
--- sep = widget({ type = "textbox" })
--- vicious.register(sep, vicious.widgets.textbox, " " )
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -467,4 +463,5 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --run_once("firefox",nil,nil,1)
 --run_once("pidgin",nil,nil,2)
 --run_once("uxrvtc",nil,nil,2)
+
 

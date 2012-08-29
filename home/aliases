@@ -119,6 +119,7 @@ alias search='packer -Ss'
 alias searchaur='packer -Ss --auronly'
 alias searchpac='pacman -Ss'
 alias upgrade='packer -Syu'
+alias pacclean='sudo pacman -Rs $(pacman -Qtdq)'
 
 # pacman aliases (if applicable, replace 'pacman' with 'yaourt'/'pacaur'/whatever)
 #alias pac='pacman -S'      # default action     - install one or more packages

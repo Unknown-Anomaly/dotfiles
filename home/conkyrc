@@ -58,7 +58,6 @@ ${color yellow}RAM${color D13D77}  $alignc ${mem} / ${memmax} $alignr $memperc% 
 ${membar}
 ${color yellow}SWAP${color 49A835} $alignc ${swap} / ${swapmax} $alignr ${swapperc}% ${color grey}
 ${swapbar}
-<<<<<<< HEAD
 ${color yellow}PROCESSES ${hr 2}${color grey}
 ${color yellow}/${color 00FEFE} $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}% ${color grey}
 ${fs_bar /}
