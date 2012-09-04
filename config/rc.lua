@@ -138,7 +138,7 @@ vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 
 
 -- Create a textclock widget
 mytextclockright = widget({ type = "textbox" })
-vicious.register(mytextclockright, vicious.widgets.date, " %T", 0.1)
+vicious.register(mytextclockright, vicious.widgets.date, " %T ", 0.1)
 
 volume_widget = widget({ type = "textbox" })
 --volume_widget:set_color("#0099CC")
