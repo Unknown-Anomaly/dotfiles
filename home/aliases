@@ -15,7 +15,7 @@ alias du='du -h'
 alias free='free -h'
 alias less='less -i'
 alias mkdir='mkdir -pv'
-alias ping='ping -c 6'
+alias ping='ping -c 4'
 
 # shortcuts
 alias c='clear'
@@ -51,6 +51,7 @@ alias hist='history | grep $1'      # requires an argument
 #alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"
 #alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
+alias dt="date +%T' '%d'/'%m'/'%Y"
 
 # privileged access
 if [ $UID -ne 0 ]; then
@@ -99,7 +100,7 @@ else
 fi
 
 # ls
-alias ls='pwd && ls -hF --color=auto --group-directories-first'
+alias list='pwd && ls -lhF --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -lh'
 alias l='ls -alh'
