@@ -74,13 +74,13 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 # programming languages
-#alias ja='java'
-#alias jc='javac'
-#alias jca='javac *.java'
-#alias jrm='rm *.class'
-#alias rb='ruby'
-#alias py='python3'
-#alias py2='python2'
+alias ja='java'
+alias jc='javac'
+alias jca='javac *.java'
+alias jrm='rm *.class'
+alias rb='ruby'
+alias py='python3'
+alias py2='python2'
 
 # vim
 alias v='vim -p'
