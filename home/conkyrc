@@ -76,13 +76,13 @@ ${top name 9}  ${top cpu 9}%    ${top mem 9}%    ${top pid 9}
 Running processes: ${running_processes}/${processes}
 ${color yellow}NETWORK ${hr 2}${color grey}
 ${if_existing /proc/net/route eth0}#
-Down: ${downspeed eth0} ${alignr}Up: ${upspeed eth0} 
+Down: ${downspeed eth0} $alignc ${exec wicd-cli -dy | ack 'Essid:' } $alignr Up: ${upspeed eth0} 
 ${downspeedgraph eth0 15,120 000000 FE0000} ${alignr}${upspeedgraph eth0 15,120 000000 00FE00}${color grey}
 eth0: ${addr eth0} ${alignr} ${exec ifconfig eth0 | egrep -o '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' }
 $endif#
 #
 ${if_existing /proc/net/route wlan0}#
-Down: ${downspeed wlan0} ${alignr}Up: ${upspeed wlan0} 
+Down: ${downspeed wlan0} $alignc ${exec wicd-cli -dy | ack 'Essid:' } $alignr Up: ${upspeed wlan0} 
 ${downspeedgraph wlan0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlan0 15,120 000000 00FE00}${color grey}
 wlan0: ${addr wlan0} ${alignr} ${exec ifconfig wlan0 | egrep -o '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' }
 $endif#
