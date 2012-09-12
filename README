@@ -20,6 +20,6 @@ This git repo contains some files I tweak every now and then to get a better exp
 
 -updatemirriors.sh: is a sh script I use to get the best and fastest mirrors for pacman.
 -minecraft.sh: is a script I wrote myself to aid in the starting of minecraft, this does backups to ~/Dropbox for online backup, ~/Games/Minecraft/Backup/ for offline backups.
--wallpaperchanger.sh: is a sh script I designed and wrote myself for better use with <a href="awesome.nahqudah.org">awesome</a> ( the window manager ).
+-wallpaperchanger.sh: is a sh script I designed and wrote myself for better use with awesome ( the window manager ).
 
 #Written in vim on ArchLinux

@@ -16,7 +16,7 @@ DesktopImg=$HOME/Pictures/DesktopImg.png
 cd $Local
 RandInt=$(find . -type f | wc -l)
 FileNum=$[ ( $RANDOM % $RandInt ) ]
-Counter=0
+Counter=1
 
 for f in $LocalDir
 do
