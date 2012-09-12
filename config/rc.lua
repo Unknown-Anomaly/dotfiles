@@ -142,7 +142,7 @@ vicious.register(mytextclockright, vicious.widgets.date, " %T ", 0.1)
 
 volume_widget = widget({ type = "textbox" })
 --volume_widget:set_color("#0099CC")
-vicious.register(volume_widget, vicious.widgets.volume, " [$1]", 2, "Master")
+vicious.register(volume_widget, vicious.widgets.volume, " [ $1 ]", 2, "Master")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
