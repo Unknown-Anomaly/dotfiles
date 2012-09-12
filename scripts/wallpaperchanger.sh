@@ -8,10 +8,12 @@
 # 
 #              Note: Mainly uses *.png files, all these file directories are used symbolically,
 #                    Change how you see fit to use.
+# Author Contact: war4756@gmail.com or github.com/Unknown-Anomaly
+#
 
-Local=$HOME/Dropbox/Pictures/Desktop_Pictures/
-LocalDir=$HOME/Dropbox/Pictures/Desktop_Pictures/*
-DesktopImg=$HOME/Pictures/DesktopImg.png
+Local=$HOME/Dropbox/Pictures/Desktop_Pictures/ # This variable for the folder address of the pictures you want to go through.
+LocalDir=$HOME/Dropbox/Pictures/Desktop_Pictures/* # This variable is for all the files inside the folder you want this script to go through.
+DesktopImg=$HOME/Pictures/DesktopImg.png # This is the image that gets over-written to change your background.
 
 cd $Local
 RandInt=$(find . -type f | wc -l)
@@ -20,9 +22,12 @@ Counter=1
 
 for f in $LocalDir
 do
-	if [ $Counter == $FileNum ];then
-		echo "Picture $f"
-		cp $f $DesktopImg
+	if [ $Counter == $FileNum ]; then
+		## One could instead of copying the image just use 'awsetbg $DesktopImg'
+		# it would work just as well, but when machine reloads it captures where-ever
+		# you set your desktop in ~/.config/awesome/theme/default/theme.lua this way
+		# so when awesome reloads you get the previous desktop background you had.
+		cp $f $DesktopImg 
 		awsetbg $DesktopImg
 	fi
 	let "Counter = ${Counter} + 1"
