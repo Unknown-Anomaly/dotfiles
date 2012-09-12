@@ -13,7 +13,6 @@ Local=$HOME/Dropbox/Pictures/Desktop_Pictures/
 LocalDir=$HOME/Dropbox/Pictures/Desktop_Pictures/*
 DesktopImg=$HOME/Pictures/DesktopImg.png
 
-
 cd $Local
 RandInt=$(find . -type f | wc -l)
 FileNum=$[ ( $RANDOM % $RandInt ) ]
@@ -24,6 +23,7 @@ do
 	if [ $Counter == $FileNum ];then
 		echo "Picture $f"
 		cp $f $DesktopImg
+		awsetbg $DesktopImg
 	fi
 	let "Counter = ${Counter} + 1"
 done
