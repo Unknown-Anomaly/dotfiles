@@ -18,7 +18,7 @@ do
 	LocalDir=$HOME/Dropbox/Pictures/Desktop_Pictures/* # This variable is for all the files inside the folder you want this script to go through.
 	DesktopImg=$HOME/Pictures/DesktopImg.png # This is the image that gets over-written to change your background.
 
-	sleep 120 # Number of seconds this script waits until executing again.
+	sleep 300 # Number of seconds this script waits until executing again.
 
 	cd $Local
 	RandInt=$(find . -type f | wc -l)
