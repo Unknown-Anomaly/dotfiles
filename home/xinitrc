@@ -40,4 +40,4 @@ elif [[ ${wm_bin} = "fluxbox" ]]; then
 	sleep 3 && urxvtc & starts a terminal
 fi
 
-exec ${wm_bin} >> ~/.cache/wm_stdout 2>> ~/.cache/wm_stderr
+exec ${wm_bin} >> ~/.cache/wm_stdout 2> ~/.cache/wm_stderr
