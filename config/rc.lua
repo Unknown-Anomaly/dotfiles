@@ -2,18 +2,9 @@
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
-<<<<<<< HEAD
--- Theme handling library
-require("beautiful")
--- Notification library
-require("naughty")
--- Widget library
-vicious = require("vicious")
-=======
 require("beautiful") -- Theme handling library
 require("naughty") -- Notification library
 vicious = require("vicious") -- Widget Library
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -30,19 +21,11 @@ do
     awesome.add_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
-<<<<<<< HEAD
         in_error = true
 
         naughty.notify({ preset = naughty.config.presets.critical,
                          title = "Oops, an error happened!",
                          text = err })
-=======
-	
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-			 text = err, })
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
         in_error = false
     end)
 end
@@ -50,11 +33,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-<<<<<<< HEAD
 beautiful.init("/home/molgan/.config/awesome/themes/default/theme.lua")
-=======
-beautiful.init("/home/molganvk/.config/awesome/themes/default/theme.lua")
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -74,19 +53,14 @@ layouts =
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-<<<<<<< HEAD
-    awful.layout.suit.spiral,
-    awful.layout.suit.max,
-=======
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
+    awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
     awful.layout.suit.magnifier
 }
 -- }}}
@@ -94,16 +68,9 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-<<<<<<< HEAD
    names = { "Nt", "Tr", "Im", "Mc", "Wk" },
    layout = { layouts[1], layouts[6], layouts[2], layouts[5], layouts[5] }
 }
-=======
-    names = { "Nt", "Tr", "IM", "Mc", "Wk" },
-    layout = { layouts[1], layouts[5], layouts[2], layouts[4], layouts[4] },
-}
-
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -163,7 +130,6 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
-<<<<<<< HEAD
 -- Create a textclock widget
 netwidget = widget({ type = "textbox" })
 vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
@@ -171,27 +137,13 @@ vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0
 -- Create a textclock widget
 mytextclock = widget({ type = "textbox" })
 vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.1)
-=======
-
---  Network usage widget
-netwidget = widget({ type = "textbox" })
-vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
-
--- Create a textclock widget
-mytextclockright = widget({ type = "textbox" })
-vicious.register(mytextclockright, vicious.widgets.date, " %T ", 0.1)
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
 
 volume_widget = widget({ type = "textbox" })
 --volume_widget:set_color("#0099CC")
 vicious.register(volume_widget, vicious.widgets.volume, " [:$1:]", 2, "Master")
 
-<<<<<<< HEAD
-
-=======
 -- Create a systray
 mysystray = widget({ type = "systray" })
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -227,20 +179,12 @@ mytasklist.buttons = awful.util.table.join(
                                                   instance = nil
                                               else
                                                   instance = awful.menu.clients({ width=250 })
-<<<<<<< HEAD
-=======
-
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
                                               end
                                           end),
                      awful.button({ }, 4, function ()
                                               awful.client.focus.byidx(1)
                                               if client.focus then client.focus:raise() end
-<<<<<<< HEAD
-                                          end),
-=======
 				          end),
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
                      awful.button({ }, 5, function ()
                                               awful.client.focus.byidx(-1)
                                               if client.focus then client.focus:raise() end
@@ -276,15 +220,9 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-<<<<<<< HEAD
         mytextclock,
         netwidget,
         volume_widget,
-=======
-        mytextclockright,
-	volume_widget,
-        netwidget,
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -323,17 +261,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight -inc 5") end), -- increase
     awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 5") end), -- decrease
 
-<<<<<<< HEAD
     awful.key({ modkey,           }, "j",
         function () awful.client.focus.byidx( 1)
-=======
-    --optical drive
-    --awful.key({ }, "XF86EJECT",                function () awful.util.spawn("eject") end),
-
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "k",
@@ -468,14 +397,7 @@ awful.rules.rules = {
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
-      properties = { floating = true } },
-<<<<<<< HEAD
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
-=======
-
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
+      properties = { floating = true } },=
 }
 -- }}}
 
@@ -509,8 +431,6 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-<<<<<<< HEAD
-=======
 
 --function run_once(prg,arg_string,pname,screen)
 --    if not prg then
@@ -531,6 +451,3 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --run_once("firefox",nil,nil,1)
 --run_once("pidgin",nil,nil,2)
 --run_once("uxrvtc",nil,nil,2)
-
-
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
