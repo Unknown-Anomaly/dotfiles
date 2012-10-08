@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# ~/.xinitrc
+
+wm_bin="$1"
+
+# Font setup
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+# Correct urxvt themeing.
+xrdb -merge ~/.Xresources &
+
+#Start daemons and managers
+start-pulseaudio-x11
+xfce4-power-manager & #power
+thunar --daemon & #thunar daemon
+urxvtd -q -o -f & #urxvt daemon
+xscreensaver -no-splash & #screen lock
+sleep 8 && dropboxd & #dropbox
+
+if [[ ${wm_bin} = "awesome" ]]; then
+        # Fix gui java apps displaying in awesome
+        _JAVA_AWT_WM_NONREPARENTING=1
+        export _JAVA_AWT_WM_NONREPARENTING
+        
+        # Set the background
+        ~/wallpaperchanger.sh &
+        
+        sleep 2 && wicd-gtk -t & #wcid gtk daemon, only tray
+        sleep 2 && conky -q & #conky
+        sleep 4 && urxvtc & #starts a terminal
+        
+        # start programs
+        sleep 6 && pidgin & # Pidgin IM client
+	
+elif [[ ${wm_bin} = "openbox" ]]; then
+	sleep 5 && urxvtc & starts a terminal
+elif [[ ${wm_bin} = "fluxbox" ]]; then
+	sleep 3 && urxvtc & starts a terminal
+fi
+
+exec ${wm_bin} >> ~/.cache/wm_stdout 2> ~/.cache/wm_stderr

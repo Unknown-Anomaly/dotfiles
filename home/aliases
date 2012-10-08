@@ -1,0 +1,147 @@
+#!/bin/bash
+#alias NICKNAME='COMMAND'
+
+# color support
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='colordiff' #requires colordiff package
+
+# modified commands
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias less='less -i'
+alias mkdir='mkdir -pv'
+alias ping='ping -c 4'
+
+# shortcuts
+alias c='clear'
+alias ccd='cd ~ && clear'
+alias e='exit'
+alias ka='killall'
+alias x='startx'
+alias ra='ranger'
+alias db='dropbox'
+alias dbp='dropbox puburl'
+alias ns='notify-send'
+alias nsc='notify-send "Process Completed"'
+alias h='history | tail -n 25'
+alias open='xdg-open'
+alias lns='ln -s'
+alias ..='cd ..'
+#alias dua='\du -ha'
+#alias dus='\du -hs'
+
+# new commands
+alias lock='xscreensaver-command -lock'
+alias xmerge='xrdb -merge $HOME/.Xresources'
+alias help='cat ~/.help'
+#alias du1='\du -h --max-depth=1 | sort -hr'
+#alias du2='\du -h --max-depth=2'
+#alias du3='\du -h --max-depth=3'
+#alias du1a='\du -ha --max-depth=1 | sort -hr'
+#alias du2a='\du -ha --max-depth=2'
+#alias du3a='\du -ha --max-depth=3'
+alias hist='history | grep $1'      # requires an argument
+#alias openports='netstat --all --numeric --programs --inet --inet6'
+#alias pg='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
+#alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"
+#alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
+alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
+alias dt="date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T"
+alias sys='dt && acpi -bita'
+
+# privileged access
+if [ $UID -ne 0 ]; then
+    alias sudo='sudo '
+    alias scat='sudo cat'
+    alias svim='sudo vim'
+    alias root='sudo su'
+    alias reboot='sudo reboot'
+    alias halt='sudo halt'
+fi
+
+# safety features
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -I'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# programming languages
+alias ja='java'
+alias jc='javac'
+alias jca='javac *.java'
+alias jrm='rm *.class'
+alias rb='ruby'
+alias py='python3'
+alias py2='python2'
+
+# vim
+alias v='vim -p'
+alias va='vim -p *'
+alias vh='vim -o'
+alias vv='vim -O'
+alias vd='vim -d'
+
+# feh
+alias feh='feh --scale-down --auto-zoom'
+
+# git
+if command -v hub &>/dev/null; then
+	alias git='hub'
+	alias g='hub'
+else
+	alias g='git'
+fi
+
+# ls
+alias list='pwd && ls -lhF --color=auto --group-directories-first'
+alias la='ls -A'
+alias ll='ls -lh'
+alias l='ls -alh'
+alias lr='ls -R'                    # recursive ls
+alias lx='ll -BX'                   # sort by extension
+alias lz='ll -rS'                   # sort by size
+alias lt='ll -rt'                   # sort by date
+alias lm='la | less'
+
+# ls++
+#alias lsp="ls++"
+#alias lap="ls++ -A"
+
+# pacman/packer
+alias pacinstall='packer -S'
+alias search='packer -Ss'
+alias searchaur='packer -Ss --auronly'
+alias searchpac='pacman -Ss'
+alias upgrade='packer -Syu'
+alias pacclean='sudo pacman -Rs $(pacman -Qtdq)'
+
+# pacman aliases (if applicable, replace 'pacman' with 'yaourt'/'pacaur'/whatever)
+#alias pac='pacman -S'      # default action     - install one or more packages
+#alias pacu='pacman -Syu'   # '[u]pdate'         - upgrade all packages to their newest version
+#alias pacs='pacman -Ss'    # '[s]earch'         - search for a package using one or more keywords
+#alias paci='pacman -Si'    # '[i]nfo'           - show information about a package
+#alias pacr='pacman -R'     # '[r]emove'         - uninstall one or more packages
+#alias pacl='pacman -Sl'    # '[l]ist'           - list all packages of a repository
+#alias pacll='pacman -Qqm'  # '[l]ist [l]ocal'   - list all packages which were locally installed (e.g. AUR packages)
+#alias paclo='pacman -Qdt'  # '[l]ist [o]rphans' - list all packages which are orphaned
+#alias paco='pacman -Qo'    # '[o]wner'          - determine which package owns a given file
+#alias pacf='pacman -Ql'    # '[f]iles'          - list all files installed by a given package
+#alias pacc='pacman -Sc'    # '[c]lean cache'    - delete all not currently installed package files
+#alias pacm='makepkg -fci'  # '[m]ake'           - make package from PKGBUILD file in current directory
+
+# funny commands
+alias archnews="echo -e \"$(echo $(curl --silent http://www.archlinux.org/feeds/news/ | sed -e ':a;N;$!ba;s/\n/ /g') | sed -e 's/&lt;\/a&gt;/@/g' | sed -e 's/<title>/\\n\\n\\n\\t:: \\e[01;31m/g' -e 's/<\/title>/\\e[00m ::\\n/g' | sed -e 's/<link>/ [ \\e[01;36m/g' -e 's/<\/link>/\\e[00m ]/g' | sed -e 's/<description>/\\n\\n\\e[00;37m/g' -e 's/<\/description>/\\e[00m\\n\\n/g' | sed -e 's/&lt;p&gt;/\n/g' | sed -e 's/&lt;a href\=\"\([^\"]*\)\"&gt;\([^@]*\)@/\\e[01;32m\2\\e[00;37m \\e[01;34m[ \\e[01;35m\1\\e[00;37m\\e[01;34m ]\\e[00;37m/g' | sed -e 's/&lt;li&gt;/\n \\e[01;34m*\\e[00;37m /g' | sed -e 's/<[^>]*>/ /g' | sed -e 's/&lt;.*&gt;//g')\n\n\""
+# prints archlinux latest news
+
+# bash aliases
+if [ -f ~/.aliases_personal ]; then
+	. ~/.aliases_personal
+fi
