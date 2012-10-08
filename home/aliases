@@ -51,13 +51,8 @@ alias hist='history | grep $1'      # requires an argument
 #alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"
 #alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
-<<<<<<< HEAD
 alias dt="date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T"
 alias sys='dt && acpi -bita'
-=======
-alias dt="date +'Day '%j' '%T' '%d'/'%m'/'%Y"
-alias sys="date +'Day '%j' '%T' '%d'/'%m'/'%Y && acpi -bi"
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
 
 # privileged access
 if [ $UID -ne 0 ]; then
@@ -150,7 +145,3 @@ alias archnews="echo -e \"$(echo $(curl --silent http://www.archlinux.org/feeds/
 if [ -f ~/.aliases_personal ]; then
 	. ~/.aliases_personal
 fi
-<<<<<<< HEAD
-=======
-
->>>>>>> 2d52161d76b4f1be6691b085e9a3304583f10be1
