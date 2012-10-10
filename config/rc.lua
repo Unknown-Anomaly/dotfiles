@@ -33,7 +33,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/molgan/.config/awesome/themes/default/theme.lua")
+beautiful.init(".config/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -130,6 +130,11 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
+
+-- Reusable separator
+separator = widget({ type = "imagebox" })
+separator.image = image(beautiful.widget_sep)
+
 -- Create a textclock widget
 netwidget = widget({ type = "textbox" })
 vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
@@ -140,7 +145,7 @@ vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.1)
 
 volume_widget = widget({ type = "textbox" })
 --volume_widget:set_color("#0099CC")
-vicious.register(volume_widget, vicious.widgets.volume, " [:$1:]", 2, "Master")
+vicious.register(volume_widget, vicious.widgets.volume, " $1%", 2, "Master")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -397,7 +402,7 @@ awful.rules.rules = {
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
-      properties = { floating = true } },=
+      properties = { floating = true } },
 }
 -- }}}
 

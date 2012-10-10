@@ -61,7 +61,7 @@ if [ $UID -ne 0 ]; then
     alias svim='sudo vim'
     alias root='sudo su'
     alias reboot='sudo reboot'
-    alias halt='sudo halt'
+    alias halt='sudo systemctl poweroff'
 fi
 
 # safety features
