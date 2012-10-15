@@ -19,7 +19,7 @@
 ShuffleTotal = 0
 ShuffleList=()
 
-while [ x$DISPLAY != x ]
+while [ x$DISPLAY -ne x ]
 do
    # Local=$HOME/Dropbox/Pictures/Desktop_Pictures/
    Local=$HOME/Dropbox/Pictures/Test/
@@ -47,13 +47,21 @@ do
    fi
    echo -en "Total: ${NumLeft}\n" ##### DEBUG ##### -- prints the total iterated through
 
-   FileNum=$[ ( $RANDOM% $NumLeft ) ]
-   Counter=0
+   # Selects a number NOT already done.
+   FileNum=$[ ( $RANDOM% $NumFiles ) ]
+   for shuffled in $ShuffleList
+   do
+   # while [ $FileNum -ne  ]
+   if [ $shuffled -eq $FileNum]
+      echo -ne "Same\n"
+   fi
+   done
+   Counter=1
    # Find a way to save instead of fully random
 
    for file in $LocalDir
    do
-      if [ $FileNum =~ ${ShuffleList[*]} ]; then
+      if [ $FileNum =~ @( ${ShuffleList[*]} ) ]; then
          echo -ne "Repeat element. FileNum=${FileNum}, In list: ${ShuffleList[*]}\n"
       fi
       if [ $Counter == $FileNum ]; then
@@ -64,12 +72,12 @@ do
          # so when awesome reloads you get the previous desktop background you had.
          ########
          ShuffleList[$ShuffleTotal]=$Counter
-         cp $file $DesktopImg
-         awsetbg $DesktopImg
+         let "ShuffleTotal = ShuffleTotal + 1" # Increments the total
+         # cp $file $DesktopImg ############################################################# REMOVE COMMENT
+         # awsetbg $DesktopImg ############################################################## REMOVE COMMENT
       fi
       let "Counter = Counter + 1"
    done
    echo -en "List: ${ShuffleList[*]}\n Counter: $Counter \t FileNum: $FileNum\n" ##### DEBUG ##### -- listing the currently chosen backgrounds
-   let "ShuffleTotal = ShuffleTotal + 1" # Increments the total 
    notify-send "Background Changed" # Notifies the user of a background change. 
 done

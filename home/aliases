@@ -62,6 +62,7 @@ if [ $UID -ne 0 ]; then
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo systemctl poweroff'
+    alias gkpause='gksudo pm-suspend'
 fi
 
 # safety features
@@ -101,7 +102,6 @@ else
 fi
 
 # ls
-alias list='pwd && ls -lhF --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -lh'
 alias l='ls -alh'
