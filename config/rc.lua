@@ -251,8 +251,8 @@ globalkeys = awful.util.table.join(
 
     --system commands
     awful.key({ "Control", modkey }, "l", function () awful.util.spawn("xscreensaver-command -lock") end), -- Lock Screen
-    awful.key({ "Control", modkey }, "s", function () awful.util.spawn("gksudo pm-suspend") end), -- Suspend
-    -- awful.key({ "Control", modkey }, "h", function () awful.util.spawn("gksudo pm-hibernate") end), -- Hibernate, doesn't work completely video is wierd after restart
+    awful.key({ "Control", modkey }, "s", function () awful.util.spawn("xscreensaver-command -lock & gksudo pm-suspend") end), -- Suspend
+    awful.key({ "Control", modkey }, "h", function () awful.util.spawn("xscreensaver-command -lock & gksudo pm-suspend-hybrid") end), -- Hibernate
     awful.key({ }, "Print",               function () awful.util.spawn("scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'") end), -- Print Screen
 
     --volume

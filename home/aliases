@@ -51,8 +51,8 @@ alias hist='history | grep $1'      # requires an argument
 #alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"
 #alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
-alias dt="date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T"
-alias sys='dt && acpi -bita'
+alias dt="date +%Y'.'%m'.'%d' '%j'.'%V'.'%u' '%T"
+alias sys="date +%Y'.'%m'.'%d' '%j'.'%V'.'%u' '%T && acpi -bita"
 
 # privileged access
 if [ $UID -ne 0 ]; then
@@ -62,7 +62,8 @@ if [ $UID -ne 0 ]; then
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo systemctl poweroff'
-    alias gkpause='gksudo pm-suspend'
+    alias suspend='lock & gksudo pm-suspend'
+    alias hibernate='gksudo pm-suspend hybrid'
 fi
 
 # safety features
