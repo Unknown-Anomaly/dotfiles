@@ -20,6 +20,6 @@ wget -qO- "$url" | sed 's/^#Server/Server/g' > "$tmpfile"
 echo " Backing up mirrorlist..."
 $su cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo " Running rankmirrors..."
-$su rankmirrors -n 10 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+$su rankmirrors -n 9 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 
 echo "Please run $ sudo pacman -Syy"
