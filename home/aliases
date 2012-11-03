@@ -54,6 +54,7 @@ alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
 alias dt="date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T"
 alias sys="uname -smrno && date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T && acpi"
 alias xorgErr='cat /var/log/Xorg.0.log | ack "] \(EE\)"'
+alias xorgWarn='cat /var/log/Xorg.0.log | ack "] \(WW\)"'
 
 # privileged access
 if [ $UID -ne 0 ]; then
