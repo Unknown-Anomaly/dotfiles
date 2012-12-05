@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/sh
 
 # Author: Walden Riedel
 # Title: Cross wallpaper changer for users of awesome ( Window Manager )
@@ -16,8 +16,8 @@
 # Author Contact: war4756@gmail.com or github.com/Unknown-Anomaly
 #
 
-ShuffleTotal = 0
-ShuffleList=()
+ShuffleTotal=0
+ShuffleList=[]
 
 while [ x$DISPLAY -ne x ]
 do
@@ -42,26 +42,26 @@ do
    # End of shuffle loop, resets all the variables to loop through the selection process again.
    if [ $NumLeft = 0 ]; then
       NumLeft=$NumFiles
-      ShuffleList=()
+      ShuffleList=[]
       ShuffleTotal=0
    fi
    echo -en "Total: ${NumLeft}\n" ##### DEBUG ##### -- prints the total iterated through
 
    # Selects a number NOT already done.
-   FileNum=$[ ( $RANDOM% $NumFiles ) ]
+   FileNum=$( ( $RANDOM% $NumFiles ) )
    for shuffled in $ShuffleList
    do
-   # while [ $FileNum -ne  ]
-   if [ $shuffled -eq $FileNum]
-      echo -ne "Same\n"
-   fi
+      # while [ $FileNum -ne  ]
+      if [ $shuffled -eq $FileNum]; then
+         echo -ne "Same\n"
+      fi
    done
    Counter=1
    # Find a way to save instead of fully random
 
    for file in $LocalDir
    do
-      if [ $FileNum =~ @( ${ShuffleList[*]} ) ]; then
+      if [ $FileNum =~ ${ShuffleList[*]} ]; then
          echo -ne "Repeat element. FileNum=${FileNum}, In list: ${ShuffleList[*]}\n"
       fi
       if [ $Counter == $FileNum ]; then
@@ -81,3 +81,4 @@ do
    echo -en "List: ${ShuffleList[*]}\n Counter: $Counter \t FileNum: $FileNum\n" ##### DEBUG ##### -- listing the currently chosen backgrounds
    notify-send "Background Changed" # Notifies the user of a background change. 
 done
+

@@ -35,7 +35,7 @@ maximum_width 360
 # Text alignment, other possible values are commented
 alignment top_left
 # Gap between borders of screen and text
-gap_x 760
+gap_x 540
 gap_y 15
 total_run_times 0
 
