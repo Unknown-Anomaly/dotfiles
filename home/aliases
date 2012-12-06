@@ -65,8 +65,8 @@ if [ $UID -ne 0 ]; then
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo systemctl poweroff'
-    alias suspend='lock & gksudo pm-suspend'
-    alias hibernate='gksudo pm-suspend hybrid'
+    alias suspend='gksudo pm-suspend & lock'
+    alias hibernate='gksudo pm-suspend hybrid & lock'
 fi
 
 # safety features
