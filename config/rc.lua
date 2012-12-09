@@ -135,7 +135,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 separator = widget({ type = "imagebox" })
 separator.image = image(beautiful.widget_sep)
 
--- Create a textclock widget
+-- Create a network  widget
 netwidget = widget({ type = "textbox" })
 vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
 
@@ -143,9 +143,14 @@ vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0
 mytextclock = widget({ type = "textbox" })
 vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.1)
 
+-- Create a volume widget
 volume_widget = widget({ type = "textbox" })
 --volume_widget:set_color("#0099CC")
 vicious.register(volume_widget, vicious.widgets.volume, " $1%", 2, "Master")
+
+-- Create a battery widget
+battery_widget = widget({ type = "textbox" })
+vicious.register(battery_widget, vicious.widgets.bat, " $2% ", 120, "BAT0")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -220,6 +225,7 @@ for s = 1, screen.count() do
     mywibox[s].widgets = {
         {
             mylauncher,
+            battery_widget,
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
