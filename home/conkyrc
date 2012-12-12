@@ -15,7 +15,7 @@ text_buffer_size 2048
 # Update interval in seconds
 update_interval 1.5
 # Update interval in seconds when conky is running on battery power
-update_interval_on_battery 3
+update_interval_on_battery 2
 # Draw shades?
 draw_shades yes
 # Text stuff
@@ -49,7 +49,7 @@ ${color yellow}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr$nodename
 Distro$alignr$kernel on $machine
 System Uptime:$alignr $uptime
-Battery:$alignr${exec acpi | ack -o 'Discharging|Full|Charging'} at $battery_percent%
+Battery: ${exec acpi | ack-grep -o '[[:digit:]]{1,2}:[[:digit:]]{1,2}'}$alignr${exec acpi | ack-grep -o 'Discharging|Full|Charging'} at $battery_percent%
 ${color yellow}CPU ${hr 2}${color grey}
 ${alignc}${cpugraph cpu0 25,250 00FF00 003300 -t}
 $alignc${color FF6E00}${cpu cpu1}%      ${color CB0C29}${cpu cpu2}%      ${color 49A835}${cpu cpu3}%      ${color 2D7DB3}${cpu cpu4}%
@@ -60,8 +60,6 @@ ${swapbar}
 ${color yellow}FILESYSTEM ${hr 2}${color grey}
 ${color yellow}/${color 00FEFE} $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}% ${color grey}
 ${fs_bar /}
-${color yellow}/home${color 00FEFE} $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home}% ${color grey}
-${fs_bar /home}
 ${color yellow}PROCESSES ${hr 2}${color grey}
 ${top name 1}$alignr${top cpu 1}%    ${top mem 1}%    ${top pid 1}
 ${top name 2}$alignr${top cpu 2}%    ${top mem 2}%    ${top pid 2}
@@ -71,13 +69,15 @@ ${top name 5}$alignr${top cpu 5}%    ${top mem 5}%    ${top pid 5}
 Running processes: ${running_processes}/${processes}
 ${color yellow}NETWORK ${hr 2}${color grey}
 ${if_existing /proc/net/route eth0}#
-Down: ${downspeed eth0} $alignc ${exec wicd-cli -dy | ack 'Essid:' } $alignr Up: ${upspeed eth0} 
+$alignc ${exec ifconfig eth0 | ack-grep -o '"\w+"' | ack-grep '\w' }
+Down: ${downspeed eth0}$alignr Up: ${upspeed eth0} 
 ${downspeedgraph eth0 15,120 000000 FE0000} ${alignr}${upspeedgraph eth0 15,120 000000 00FE00}${color grey}
 eth0: ${addr eth0} ${alignr} ${exec ifconfig eth0 | egrep -o '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' }
 $endif#
 #
 ${if_existing /proc/net/route wlan0}#
-Down: ${downspeed wlan0} $alignc ${exec wicd-cli -dy | ack 'Essid:' } $alignr Up: ${upspeed wlan0} 
+$alignc ${exec iwconfig wlan0 | ack-grep -o '"\w+"' | ack-grep '\w' } 
+Down: ${downspeed wlan0} $alignr Up: ${upspeed wlan0} 
 ${downspeedgraph wlan0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlan0 15,120 000000 00FE00}${color grey}
 wlan0: ${addr wlan0} ${alignr} ${exec ifconfig wlan0 | egrep -o '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' }
 $endif#
