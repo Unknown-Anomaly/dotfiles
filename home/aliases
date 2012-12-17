@@ -59,7 +59,6 @@ alias xorgWarn='cat /var/log/Xorg.0.log | ack "] \(WW\)"'
 
 # privileged access
 if [ $UID -ne 0 ]; then
-    alias sudo='sudo '
     alias scat='sudo cat'
     alias svim='sudo vim'
     alias root='sudo su'
