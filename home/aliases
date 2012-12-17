@@ -16,7 +16,7 @@ alias free='free -h'
 alias less='less -i'
 alias mkdir='mkdir -pv'
 alias ping='ping -c 4'
-alias ack='ack-grep'
+#alias ack='ack-grep'
 
 # shortcuts
 alias c='clear'
