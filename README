@@ -21,5 +21,7 @@ This git repo contains some files I tweak every now and then to get a better exp
 -updatemirriors.sh: is a sh script I use to get the best and fastest mirrors for pacman.
 -minecraft.sh: is a script I wrote myself to aid in the starting of minecraft, this does backups to ~/Dropbox for online backup, ~/Games/Minecraft/Backup/ for offline backups.
 -wallpaperchanger.sh: is a sh script I designed and wrote myself for better use with awesome ( the window manager ).
+-dvorakTutor.sh: is a sh script written to change keyboard layout before entering a program to help the user learn dvorak, this program was in no way written by myself. After exit of program script changes the keyboard layout back.
+-loadVmail.bash: is a bash script to load the defaults for vmail, and then executes the vmail program. 
 
 #Written in vim on ArchLinux
