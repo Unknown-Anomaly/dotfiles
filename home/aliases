@@ -52,8 +52,8 @@ alias hist='history | grep $1'      # requires an argument
 #alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"
 #alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias screenshot="scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/Screenshots'"
-alias dt="date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T"
-alias sys="uname -smrno && date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T && acpi"
+alias dt="date +%d'/'%m'/'%Y%nDay\ %j\ Week\ %V'.'%u%n%T"
+alias sys="uname -smrno && date +%d'/'%m'/'%Y'-'%T && acpi"
 alias xorgErr='cat /var/log/Xorg.0.log | ack "] \(EE\)"'
 alias xorgWarn='cat /var/log/Xorg.0.log | ack "] \(WW\)"'
 
