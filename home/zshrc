@@ -49,8 +49,7 @@ man() {
 # goo.gl/rQBxa
 if [ x$DISPLAY != x ]
 then
-	#fortune | ponysay
-	fortune | cowsay -f tux
+	fortune | ponysay
 else
 	fortune | cowsay -f eyes
 fi

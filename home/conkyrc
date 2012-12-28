@@ -9,7 +9,7 @@ double_buffer yes
 use_spacer right
 # Use Xft?
 use_xft yes
-xftfont termsyn:size=7 #tamsyn, termsyn, monospace
+xftfont tamsyn:size=8 #tamsyn, termsyn, monospace
 xftalpha 0.8
 text_buffer_size 2048
 # Update interval in seconds
@@ -35,10 +35,9 @@ maximum_width 360
 # Text alignment, other possible values are commented
 alignment top_left
 # Gap between borders of screen and text
-gap_x 540
+gap_x 760
 gap_y 15
 total_run_times 0
-
 
 # stuff after 'TEXT' will be formatted on screen
  
@@ -60,6 +59,8 @@ ${swapbar}
 ${color yellow}FILESYSTEM ${hr 2}${color grey}
 ${color yellow}/${color 00FEFE} $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}% ${color grey}
 ${fs_bar /}
+${color yellow}/home${color 00FEFE} $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home}% ${color grey}
+${fs_bar /home}
 ${color yellow}PROCESSES ${hr 2}${color grey}
 ${top name 1}$alignr${top cpu 1}%    ${top mem 1}%    ${top pid 1}
 ${top name 2}$alignr${top cpu 2}%    ${top mem 2}%    ${top pid 2}
@@ -69,14 +70,14 @@ ${top name 5}$alignr${top cpu 5}%    ${top mem 5}%    ${top pid 5}
 Running processes: ${running_processes}/${processes}
 ${color yellow}NETWORK ${hr 2}${color grey}
 ${if_existing /proc/net/route eth0}#
-$alignc ${exec ifconfig eth0 | ack-grep -o '"\w+"' | ack-grep '\w' }
+$alignc ${exec ifconfig eth0 | ack -o '"\w+"' | ack '\w' }
 Down: ${downspeed eth0}$alignr Up: ${upspeed eth0} 
 ${downspeedgraph eth0 15,120 000000 FE0000} ${alignr}${upspeedgraph eth0 15,120 000000 00FE00}${color grey}
 eth0: ${addr eth0} ${alignr} ${exec ifconfig eth0 | egrep -o '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' }
 $endif#
 #
 ${if_existing /proc/net/route wlan0}#
-$alignc ${exec iwconfig wlan0 | ack-grep -o '"\w+"' | ack-grep '\w' } 
+$alignc ${exec iwconfig wlan0 | ack -o '"\w+"' | ack '\w' } 
 Down: ${downspeed wlan0} $alignr Up: ${upspeed wlan0} 
 ${downspeedgraph wlan0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlan0 15,120 000000 00FE00}${color grey}
 wlan0: ${addr wlan0} ${alignr} ${exec ifconfig wlan0 | egrep -o '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' }
