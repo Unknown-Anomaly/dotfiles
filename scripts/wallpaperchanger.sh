@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/bash
 
 # Author: Walden Riedel
 # Title: Cross wallpaper changer for users of awesome ( Window Manager )
@@ -16,24 +16,23 @@
 # Author Contact: war4756@gmail.com or github.com/Unknown-Anomaly
 #
 
-ShuffleTotal=0
-ShuffleList=[]
+ShuffleTotal = 0
+ShuffleList=()
 
-while [ x$DISPLAY -ne x ]
+while [ x$DISPLAY != x ]
 do
-   # Local=$HOME/Dropbox/Pictures/Desktop_Pictures/
-   Local=$HOME/Dropbox/Pictures/Test/
+   Local=$HOME/Dropbox/Pictures/Desktop_Pictures/
+   # Local=$HOME/Dropbox/Pictures/Test/
    # This variable for the folder address of the pictures you want to go through.
 
-   #LocalDir=$HOME/Dropbox/Pictures/Desktop_Pictures/*
-   LocalDir=$HOME/Dropbox/Pictures/Test/*
+   LocalDir=$HOME/Dropbox/Pictures/Desktop_Pictures/*
+   # LocalDir=$HOME/Dropbox/Pictures/Test/*
    # This variable is for all the files inside the folder you want this script to go through.
 
    DesktopImg=$HOME/Pictures/DesktopImg.png
    # This is the image that gets over-written to change your background.
 
-   # sleep 180 # Number of seconds this script waits until executing again. Set to 3 minutes.
-   # sleep 2
+   sleep 480 # Number of seconds this script waits until executing again. Set to 8 minutes.
 
    cd $Local
    NumFiles=$(find . -type f | wc -l)
@@ -42,21 +41,13 @@ do
    # End of shuffle loop, resets all the variables to loop through the selection process again.
    if [ $NumLeft = 0 ]; then
       NumLeft=$NumFiles
-      ShuffleList=[]
+      ShuffleList=()
       ShuffleTotal=0
    fi
    echo -en "Total: ${NumLeft}\n" ##### DEBUG ##### -- prints the total iterated through
 
-   # Selects a number NOT already done.
-   FileNum=$( ( $RANDOM% $NumFiles ) )
-   for shuffled in $ShuffleList
-   do
-      # while [ $FileNum -ne  ]
-      if [ $shuffled -eq $FileNum]; then
-         echo -ne "Same\n"
-      fi
-   done
-   Counter=1
+   FileNum=$[ ( $RANDOM% $NumLeft ) ]
+   Counter=0
    # Find a way to save instead of fully random
 
    for file in $LocalDir
@@ -72,13 +63,12 @@ do
          # so when awesome reloads you get the previous desktop background you had.
          ########
          ShuffleList[$ShuffleTotal]=$Counter
-         let "ShuffleTotal = ShuffleTotal + 1" # Increments the total
-         # cp $file $DesktopImg ############################################################# REMOVE COMMENT
-         # awsetbg $DesktopImg ############################################################## REMOVE COMMENT
+         cp $file $DesktopImg
+         awsetbg $DesktopImg
       fi
       let "Counter = Counter + 1"
    done
    echo -en "List: ${ShuffleList[*]}\n Counter: $Counter \t FileNum: $FileNum\n" ##### DEBUG ##### -- listing the currently chosen backgrounds
+   let "ShuffleTotal = ShuffleTotal + 1" # Increments the total 
    notify-send "Background Changed" # Notifies the user of a background change. 
 done
-

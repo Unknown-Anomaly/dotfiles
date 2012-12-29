@@ -43,12 +43,12 @@ total_run_times 0
  
 TEXT
 
-${color grey}Today is $alignr${exec date +%Y'.'%m'.'%d'-'%j'.'%V'.'%u'-'%T}
+${color grey}Today is $alignr${exec date +%Y'/'%m'/'%d'-'%j':'%V'.'%u'='%T}
 ${color yellow}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr$nodename
 Distro$alignr$kernel on $machine
 System Uptime:$alignr $uptime
-Battery: ${exec acpi | ack-grep -o '[[:digit:]]{1,2}:[[:digit:]]{1,2}'}$alignr${exec acpi | ack-grep -o 'Discharging|Full|Charging'} at $battery_percent%
+Battery: ${exec acpi | ack -o '[[:digit:]]{1,2}:[[:digit:]]{1,2}'}$alignr${exec acpi | ack -o 'Discharging|Full|Charging'} at $battery_percent%
 ${color yellow}CPU ${hr 2}${color grey}
 ${alignc}${cpugraph cpu0 25,250 00FF00 003300 -t}
 $alignc${color FF6E00}${cpu cpu1}%      ${color CB0C29}${cpu cpu2}%      ${color 49A835}${cpu cpu3}%      ${color 2D7DB3}${cpu cpu4}%
@@ -67,6 +67,9 @@ ${top name 2}$alignr${top cpu 2}%    ${top mem 2}%    ${top pid 2}
 ${top name 3}$alignr${top cpu 3}%    ${top mem 3}%    ${top pid 3}
 ${top name 4}$alignr${top cpu 4}%    ${top mem 4}%    ${top pid 4}
 ${top name 5}$alignr${top cpu 5}%    ${top mem 5}%    ${top pid 5}
+${top name 6}$alignr${top cpu 6}%    ${top mem 6}%    ${top pid 6}
+${top name 7}$alignr${top cpu 7}%    ${top mem 7}%    ${top pid 7}
+${top name 8}$alignr${top cpu 8}%    ${top mem 8}%    ${top pid 8}
 Running processes: ${running_processes}/${processes}
 ${color yellow}NETWORK ${hr 2}${color grey}
 ${if_existing /proc/net/route eth0}#
