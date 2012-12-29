@@ -6,9 +6,12 @@ This git repo contains some files I tweak every now and then to get a better exp
 -aliases: contains a set of aliases I use in terminal to perform everyday tasks
 -bashrc: is my rc file for bash, it also redirects to aliases
 -conkyrc: is my rc file for conky, also contains my conky theme elements.
+-owlconf: is my configuration file for barnowl.
 -vimrc: is my rc for for vim, uses vundle for plugin support.
 -xinitrc: is my xinit script run from cdm. startx or xinit must be supplied a wm/dm name as $1.
 -zshrc: is my rc file for zsh, it also redirects to aliases.
+
+-arch.list: a list of programs installed on my system for compatiblity checking, personal updating of multiple systems.
 
 /config
 # Not located in $HOME/
