@@ -10,41 +10,46 @@ xrdb -merge ~/.Xresources &
 
 #Start daemons and managers
 start-pulseaudio-x11
-xfce4-power-manager & #power
 thunar --daemon & #thunar daemon
 urxvtd -q -o -f & #urxvt daemon
 xscreensaver -no-splash & #screen lock
 dropboxd & #dropbox
 
+# Fix gui java apps displaying in xdisplays
+_JAVA_AWT_WM_NONPARENTING=1
+export _JAVA_AWT_WM_NONPARENTING
+
 case "$1" in
     cinnamon )
-	exec cinnamon >> ~/.cache/cinnamon_wm_stdout 2> ~/.cache/cinnamon_wm_stderr
+	xfce4-power-manager & # power
+	exec cinnamon >> ~/.cache/wm_cinnamon_stdout 2> ~/.cache/wm_cinnamon_stderr
 	;;
     fluxbox )
-	exec fluxbox >> ~/.cache/fluxbox_wm_stdout 2> ~/.cache/fluxbox_wm_stderr
+	exec startfluxbox >> ~/.cache/wm_fluxbox_stdout 2> ~/.cache/wm_fluxbox_stderr
 	;;
     openbox )
-	exec openbox >> ~/.cache/openbox_wm_stdout 2> ~/.cache/openbox_wm_stderr
+	exec openbox >> ~/.cache/wm_openbox_stdout 2> ~/.cache/wm_openbox_stderr
+	;;
+    xfce4 )
+        exec startxfce4 >> ~/.cache/wm_xfce4_stdout 2> ~/.cache/wm_xfce4_stderr
+	;;
+    kde )
+	exec startkde >> ~/.cache/wm_kde_stdout 2> ~/.cache/wm_kde_stderr
 	;;
     awesome )
-        # All else fails start awesome
-	#
-	# Fix gui java apps displaying in awesome
-	_JAVA_AWT_WM_NONREPARENTING=1
-	export _JAVA_AWT_WM_NONREPARENTING
-	
 	# Set the background
-	awsetbg ~/Pictures/DesktopImg.png
-	~/wallpaperchanger.sh &
+	# awsetbg ~/Pictures/DesktopImg.png
+	# ~/wallpaperchanger.sh &
 	
 	nm-applet & #network manager applet
+	xfce4-power-manager & # power manager
 	conky -q & #conky
 	sleep 4 && urxvtc & #starts a terminal
 
 	# start programs
 	# sleep 6 && pidgin & # Pidgin IM client
-	exec awesome >> ~/.cache/awesome_wm_stdout 2> ~/.cache/awesome_wm_stderr
+	exec awesome >> ~/.cache/wm_awesome_stdout 2> ~/.cache/wm_awesome_stderr
 	;;
     * )
-	exec xterm >> ~/.cache/xorg_wm_stdout 2> ~/.cache/xorg_wm_stderr
+	exec xterm >> ~/.cache/wm_xorg_stdout 2> ~/.cache/wm_xorg_stderr
 esac

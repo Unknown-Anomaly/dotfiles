@@ -29,6 +29,13 @@ export EDITOR="vim"
 #ssh-add
 #eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
+# Security automatic logouts over ssh
+TMOUT="$(( 60*10 ))";
+[ -z "$DISPLAY" ] && export TMOUT;
+case $( /usr/bin/tty ) in
+	/dev/tty[0-9]*) export TMOUT;;
+esac
+
 # aliases
 if [ -f ~/.aliases ]; then . ~/.aliases; fi
 
