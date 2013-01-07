@@ -164,7 +164,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 local mytextclock = wibox.widget.textbox()  
 mytextclock:set_text('date +%T')
-vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.1)
+vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.2)
 
 -- Create a network  widget
 -- local network_widget = wibox.widget.textbox()
@@ -177,6 +177,16 @@ vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.1)
 -- Create a battery widget
 -- local battery_widget = wibox.widget.textbox()
 -- vicious.register(battery_widget, vicious.widgets.bat, " $2% ", 120, "BAT0")
+
+-- local battery_widget = wibox.widget.progressbar()
+-- battery_widget:set_width(8)
+-- battery_widget:set_height(10)
+-- battery_widget:set_vertical(true)
+-- battery_widget:set_background_color("#494B4F")
+-- battery_widget:set_border_color(nil)
+-- battery_widget:set_color("#AECF96")
+-- battery_widget:set_gradient_colors({ "#AECF96", "#88A175", "#FF5656" })
+-- vicious.register(battery_widget, vicious.widgets.bat, "$2", 61, "BAT0")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
