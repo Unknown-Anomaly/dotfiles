@@ -162,22 +162,20 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 --separator.image = image(beautiful.widget_sep)
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
---mytextclock = wibox.widget.textbox()  
---mytextclock:set_text('date +%T')
---vicious.register(myfulltextclock, vicious.widgets.date, " %T ", 0.1)
+local mytextclock = wibox.widget.textbox()  
+mytextclock:set_text('date +%T')
+vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.1)
 
 -- Create a network  widget
---netwidget = widget({ type = "textbox" })
---vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
+-- local network_widget = wibox.widget.textbox()
+-- vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
 
 -- Create a volume widget
---volume_widget = widget({ type = "textbox" })
---vicious.register(volume_widget, vicious.widgets.volume, " $1%", 2, "Master")
+-- local volume_widget = wibox.widget.textbox()
+-- vicious.register(volume_widget, vicious.widgets.volume, " $1%", 2, "Master")
 
 -- Create a battery widget
---battery_widget = wibox.widget.textbox()
---battery_widget:set_markup("acpi | ack -o '\d\d%'")
+-- local battery_widget = wibox.widget.textbox()
 -- vicious.register(battery_widget, vicious.widgets.bat, " $2% ", 120, "BAT0")
 
 -- Create a wibox for each screen and add it
@@ -251,14 +249,15 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mylauncher)
-    --left_layout:add(battery_widget) ####
+    -- left_layout:add(battery_widget)
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    -- right_layout:add(myrighttextclock) ####
+    -- right_layout:add(volume_widget)
+    -- right_layout:add(network_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
