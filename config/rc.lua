@@ -84,8 +84,8 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-    names = { "Nt", "Tr", "Im", "Ns", "Wk", "Mc" },
-    layout = { layouts[1], layouts[6], layouts[2], layouts[5], layouts[5], layouts[1] }
+    names = { "Net", "Con", "IM", "Wrk", "Msc" },
+    layout = { layouts[1], layouts[6], layouts[2], layouts[5], layouts[1] }
 }
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -162,16 +162,17 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 --separator.image = image(beautiful.widget_sep)
 
 -- Create a textclock widget
-local mytextclock = wibox.widget.textbox()  
-mytextclock:set_text('date +%T')
+local mytextclock = wibox.widget.textbox()
 vicious.register(mytextclock, vicious.widgets.date, " %T ", 0.2)
 
 -- Create a network  widget
 -- local network_widget = wibox.widget.textbox()
--- vicious.register(netwidget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 0.25)
+-- vicious.register(batter_widget, vicious.widgets.net, ' <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>')
+-- network_widget:set_markup("<span color='#CC9393'>${wlan0 down_kb}</span> <span color='#7F9F7F'>${wlan0 up_kb}</span>")
 
 -- Create a volume widget
 -- local volume_widget = wibox.widget.textbox()
+-- volume_widget:set_text("exec ~/volume_get")
 -- vicious.register(volume_widget, vicious.widgets.volume, " $1%", 2, "Master")
 
 -- Create a battery widget
