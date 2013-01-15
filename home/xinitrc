@@ -20,10 +20,6 @@ _JAVA_AWT_WM_NONPARENTING=1
 export _JAVA_AWT_WM_NONPARENTING
 
 case "$1" in
-    cinnamon )
-	xfce4-power-manager & # power
-	exec cinnamon >> ~/.cache/wm_cinnamon_stdout 2> ~/.cache/wm_cinnamon_stderr
-	;;
     fluxbox )
 	exec startfluxbox >> ~/.cache/wm_fluxbox_stdout 2> ~/.cache/wm_fluxbox_stderr
 	;;
@@ -35,6 +31,9 @@ case "$1" in
 	;;
     kde )
 	exec startkde >> ~/.cache/wm_kde_stdout 2> ~/.cache/wm_kde_stderr
+	;;
+    gnome )
+	exec gnome-session >> ~/.cache/wm_gnome_stdout 2> ~/.cache/wm_gnome_sterr
 	;;
     awesome )
 	# Set the background
