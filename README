@@ -9,6 +9,7 @@ This git repo contains some files I tweak every now and then to get a better exp
 -owlconf: is my configuration file for barnowl.
 -vimrc: is my rc for for vim, uses vundle for plugin support.
 -xinitrc: is my xinit script run from cdm. startx or xinit must be supplied a wm/dm name as $1.
+-Xresources: is my Xresources file that fixes graphics that are set by 'xrdb --merge ~/.Xresources' in aliases 'xmerge'
 -zshrc: is my rc file for zsh, it also redirects to aliases.
 
 -arch.list: a list of programs installed on my system for compatiblity checking, personal updating of multiple systems.
