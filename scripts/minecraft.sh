@@ -85,6 +85,9 @@ case $backup in
 				echo -n "Please give a description for this backup [Enter for none]: "
 				read desc
 				Tempdate=`date +%Y"_"%m"_"%d"-"%R"-"%a"-"%b`
+				if [ ! -d "$localDir" ]; then
+					mkdir -p "$localDir/bin"
+				fi
 				if [ "${desc}" != "" ]; then
 					cp -R $HOME/.minecraft $localDir/"${Tempdate} - ( ${desc} )"
 					cp -R $HOME/.minecraft/bin/ $localDir/bin/"${Tempdate} - ( ${desc} )"
@@ -194,6 +197,6 @@ esac
 
 notify-send -t 1000 "Starting Minecraft"
 
-exec java -Xmx920M -Xms360M -jar ~/Games/minecraft.jar
+exec java -Xmx1024M -Xms512M -jar ~/Games/minecraft.jar
 clear
 exit 0
