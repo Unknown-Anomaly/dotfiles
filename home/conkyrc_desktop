@@ -4,16 +4,16 @@ own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 # Use double buffering (reduces flicker, may not work for everyone)
-double_buffer yes
+# double_buffer yes
 # fiddle with window
 use_spacer right
 # Use Xft?
 use_xft yes
-xftfont tamsyn:size=8 #tamsyn, termsyn, monospace
+xftfont tamsyn:size=10 #tamsyn, termsyn, monospace
 xftalpha 0.8
 text_buffer_size 2048
 # Update interval in seconds
-update_interval 1.5
+update_interval 0.2
 # Update interval in seconds when conky is running on battery power
 update_interval_on_battery 2
 # Draw shades?
@@ -31,11 +31,11 @@ default_color white
 own_window_colour brown
 own_window_transparent yes
 # Max width
-maximum_width 360
+maximum_width 500
 # Text alignment, other possible values are commented
 alignment top_left
 # Gap between borders of screen and text
-gap_x 760
+gap_x 1560
 gap_y 15
 total_run_times 0
 
@@ -43,12 +43,11 @@ total_run_times 0
  
 TEXT
 
-${color grey}Today is $alignr${exec date +%Y'/'%m'/'%d'-'%j':'%V'.'%u'='%T}
+${color grey}Today is $alignr${exec date +%Y'/'%m'/'%d' '%j'.'%V'.'%u' '%T}
 ${color yellow}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr$nodename
 Distro$alignr$kernel on $machine
 System Uptime:$alignr $uptime
-Battery: ${exec acpi | ack -o '[[:digit:]]{1,2}:[[:digit:]]{1,2}'}$alignr${exec acpi | ack -o 'Discharging|Full|Charging'} at $battery_percent%
 ${color yellow}CPU ${hr 2}${color grey}
 ${alignc}${cpugraph cpu0 25,250 00FF00 003300 -t}
 $alignc${color FF6E00}${cpu cpu1}%      ${color CB0C29}${cpu cpu2}%      ${color 49A835}${cpu cpu3}%      ${color 2D7DB3}${cpu cpu4}%
