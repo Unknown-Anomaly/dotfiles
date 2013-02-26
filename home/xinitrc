@@ -42,7 +42,7 @@ case "$1" in
 	
 	nm-applet & #network manager applet
 	xfce4-power-manager & # power manager
-	conky -q & #conky
+	# conky -q & #conky
 	sleep 4 && urxvtc & #starts a terminal
 
 	# start programs
@@ -50,5 +50,6 @@ case "$1" in
 	exec awesome >> ~/.cache/wm_awesome_stdout 2> ~/.cache/wm_awesome_stderr
 	;;
     * )
-	exec xterm >> ~/.cache/wm_xorg_stdout 2> ~/.cache/wm_xorg_stderr
+	exec xterm >> ~/.cache/wm_xorg_stdout 2> ~/.cache/wm_xorg_stder
+	r
 esac
