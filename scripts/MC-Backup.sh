@@ -8,7 +8,7 @@ clear #clears the screen before asking for user-input
 # 
 # Thank you.
 
-filetarget="$XDG_CONFIG_HOME/.minecraftbackup.cfg"
+filetarget="$HOME/.config/minecraftbackup.cfg"
 localSave="$HOME/Games/Minecraft/Backup"
 localDir=
 
