@@ -8,7 +8,7 @@ clear #clears the screen before asking for user-input
 # 
 # Thank you.
 
-filetarget="$XDG_CONFIG_HOME/.minecraftbackup.cfg"
+filetarget="$HOME/.config/minecraftbackup.cfg"
 localSave="$HOME/Games/Minecraft/Backup"
 localDir=
 
@@ -145,58 +145,7 @@ case $backup in
 	* ) echo "Required input is Y and n."
 		exit 1
 		;;
-#
 esac
-
-#user=
-#password=
-#server=
-
-# Maybe save a default user, and last used server?
-#
-# if "" for user use last used user input.
-# if "last" for server use last used server input.
-# figure out how to encode/protect the password.
-
-#echo -e -n "\nDo you want to customize login? [Y/n]: "
-#read loginOption
-#case $loginOption in 
-#	[Yy] ) echo -e "Note:\nIf you are entering a password you MUST enter in a username.\n\nThis saves that last known user and server.\nEnter nothing for last used user."
-#		# Username Entry #
-#		echo -n "Username: "
-#		read user
-#	
-#		# Password Entry #
-#		stty -echo
-#		echo -e "\nYour password will not be saved, and will be obfuscated."
-#		echo -n "Password: "
-#		read password
-#		stty echo
-#	
-#		# Server Entry #
-#		echo -e "\nFor last known server enter 'last'."
-#		echo -n "Server: "
-#		read server
-#	
-#		echo -n "Will run minecraft with user: ${user}"
-#		if [ "${server}" != "" ]; then
-#			echo ", on server: ${server}."
-#			notify-send -t 500 "Starting Minecraft with user: ${user}, on server: ${server}."
-#		else
-#			echo "."
-#			notify-send -t 500 "Starting Minecraft with user: ${user}."
-#		fi
-#		;;
-#
-#	[Nn] ) echo -e "\n\nStarting Minecraft."
-#		notify-send -t 500 "Starting Minecraft."
-#		;;
-#
-#	* ) echo "Required input is Y and n."
-#		exit 1
-#		;;
-#
-#esac
 
 notify-send -t 1000 "Starting Minecraft"
 
