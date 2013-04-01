@@ -40,7 +40,7 @@ case "$1" in
 	# awsetbg ~/Pictures/DesktopImg.png
 	# ~/wallpaperchanger.sh &
 	
-	nm-applet & #network manager applet
+	wicd-gtk & # starts the gui wicd manager
 	xfce4-power-manager & # power manager
 	# conky -q & #conky
 	sleep 4 && urxvtc & #starts a terminal
