@@ -13,7 +13,7 @@ start-pulseaudio-x11
 thunar --daemon & #thunar daemon
 urxvtd -q -o -f & #urxvt daemon
 xscreensaver -no-splash & #screen lock
-sleep 20 && dropboxd & #dropbox
+sleep 60 && dropboxd & #dropbox
 
 # Fix gui java apps displaying in xdisplays
 _JAVA_AWT_WM_NONPARENTING=1
@@ -40,9 +40,9 @@ case "$1" in
 	# awsetbg ~/Pictures/DesktopImg.png
 	# ~/wallpaperchanger.sh &
 	
-	wicd-gtk & # starts the gui wicd manager
+	wicd-gtk -t & # starts the gui wicd manager as a tray icon
 	xfce4-power-manager & # power manager
-	# conky -q & #conky
+	conky -p 6 & # conky start paused for 6 seconds
 	sleep 4 && urxvtc & #starts a terminal
 
 	# start programs
@@ -50,6 +50,5 @@ case "$1" in
 	exec awesome >> ~/.cache/wm_awesome_stdout 2> ~/.cache/wm_awesome_stderr
 	;;
     * )
-	exec xterm >> ~/.cache/wm_xorg_stdout 2> ~/.cache/wm_xorg_stder
-	r
+	exec xterm >> ~/.cache/wm_xorg_stdout 2> ~/.cache/wm_xorg_stderr
 esac
