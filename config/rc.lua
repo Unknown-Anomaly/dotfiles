@@ -11,7 +11,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
-
+-- Composting Wizard
+awful.util.spawn_with_shell("unagi &")
 
 
 -- {{{ Error handling

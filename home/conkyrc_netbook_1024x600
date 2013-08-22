@@ -28,7 +28,7 @@ stippled_borders 3
 border_width 10
 # Default colors and also border colors, grey90 == #e5e5e5
 default_color white
-own_window_colour brown
+own_window_colour grey
 own_window_transparent yes
 # Max width
 maximum_width 360
@@ -36,13 +36,12 @@ maximum_width 360
 alignment top_left
 # Gap between borders of screen and text
 gap_x 755
-gap_y 15
+gap_y 20
 #total_run_times 0
 
 # stuff after 'TEXT' will be formatted on screen
  
 TEXT
-
 ${color grey}Today is $alignr${exec date +%F'\'%T'\'%j'd\'%W'w\'%u}
 ${color yellow}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr$nodename
