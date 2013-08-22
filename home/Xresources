@@ -11,7 +11,7 @@ urxvt.matcher.button:  1
 urxvt.colorUL: #4682B4
 
 ! Fonts
-urxvt.font:    xft:Tamsyn:size=10:antialias=false
+urxvt.font:    xft:tamsyn:size=10:antialias=false
 
 ! Theme
 ! Molokai theme

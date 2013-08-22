@@ -51,9 +51,9 @@ alias hist='history | grep $1'                                                  
 #alias pg='ps -Af | grep $1'                                                          # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
 #alias pcp="rsync --partial --progress --append --rsh=ssh -r -h"                      #
 #alias pmv="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"  #
-alias screenshot="scrot ~/Screenshots/%Y-%m-%d_%H:%M:%S.png"  # takes a screen shot with scrot and stores it in ~/Screenshots
-alias dt="date +%d'/'%m'/'%Y%nDay\ %j\ Week\ %V'.'%u%n%T"     # prints out current date in style
-alias sys="uname -smrno && date +%d'/'%m'/'%Y'-'%T && acpi"   # prints out system information as well as the current date
+alias sshot="scrot ~/Pictures/Screenshots/%F-%T_$wx$h.png"  # takes a screen shot with scrot and stores it in ~Pictures/Screenshots
+alias dt="date +%F%nDay\ %j\ Week\ %W'.'%u%n%T"     # prints out current date in style
+alias sys="uname -smrno && date +%F'\'%T && acpi"   # prints out system information as well as the current date
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
 # [xo]rg [p]roblems [r]eport

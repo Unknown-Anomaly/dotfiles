@@ -12,37 +12,45 @@ xrdb -merge ~/.Xresources &
 start-pulseaudio-x11
 thunar --daemon & #thunar daemon
 urxvtd -q -o -f & #urxvt daemon
-xscreensaver -no-splash & #screen lock
-sleep 20 && dropboxd & #dropbox
+xscreensaver -no-splash & #xscreensaver daemon
+sleep 60 && dropboxd & #dropbox
 
 # Fix gui java apps displaying in xdisplays
 _JAVA_AWT_WM_NONPARENTING=1
 export _JAVA_AWT_WM_NONPARENTING
 
 case "$1" in
-    fluxbox )
-	exec startfluxbox >> ~/.cache/wm_fluxbox_stdout 2> ~/.cache/wm_fluxbox_stderr
-	;;
-    openbox )
-	exec openbox >> ~/.cache/wm_openbox_stdout 2> ~/.cache/wm_openbox_stderr
-	;;
     xfce4 )
         exec startxfce4 >> ~/.cache/wm_xfce4_stdout 2> ~/.cache/wm_xfce4_stderr
 	;;
-    kde )
-	exec startkde >> ~/.cache/wm_kde_stdout 2> ~/.cache/wm_kde_stderr
-	;;
     gnome )
 	exec gnome-session >> ~/.cache/wm_gnome_stdout 2> ~/.cache/wm_gnome_sterr
+	;;
+    xmonad )
+	# initalizes trayer to hold running applications
+	trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x191970 --height 12 &
+	xsetroot -solid midnightblue &
+	if [ -x /usr/bin/nm-applet ] ; then
+	    nm-applet --sm-disable &
+	fi
+
+	if [ -x /usr/bin/wicd-gtk ] ; then
+	    sleep 3
+	    wicd-gtk -t &
+	fi
+
+	conky -p 6 &
+
+	exec xmonad >> ~/.cache/wm_xmonad_stdout 2> ~/.cache/wm_xmonad_stderr
 	;;
     awesome )
 	# Set the background
 	# awsetbg ~/Pictures/DesktopImg.png
 	# ~/wallpaperchanger.sh &
 	
-	nm-applet & #network manager applet
+	wicd-gtk -t & # starts the gui wicd manager as a tray icon
 	xfce4-power-manager & # power manager
-	conky -q & #conky
+	conky -p 6 & # conky start paused for 6 seconds
 	sleep 4 && urxvtc & #starts a terminal
 
 	# start programs
