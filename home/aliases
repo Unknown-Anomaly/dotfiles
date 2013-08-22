@@ -71,7 +71,7 @@ if [ $UID -ne 0 ]; then
 fi
 
 # safety features
-alias cp='cp -i'
+#alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -I'
 alias ln='ln -i'
