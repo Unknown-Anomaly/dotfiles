@@ -36,7 +36,7 @@ maximum_width 500
 alignment top_left
 # Gap between borders of screen and text
 gap_x 1560
-gap_y 15
+gap_y 20
 total_run_times 0
 
 # stuff after 'TEXT' will be formatted on screen
