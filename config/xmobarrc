@@ -10,7 +10,7 @@ Config {
                         "--", "-i", "<fc=green>AC</fc>", "-O", "<fc=blue>Charging</fc>", "-o", "<fc=purple>Discharging</fc>",
                         "-L", "-30", "-H", "-10",
                         "-l", "red", "-m", "blue", "-h", "green"] 180
-                   , Run MultiCpu ["-t","<total>%%"] 10
+                   , Run MultiCpu ["-t","<total>%"] 10
                    , Run Memory ["-t","Mem: <usedratio>%"] 10
                    , Run Swap [] 10
                    , Run Wireless "wlan0" ["-L","10","-H","32","--normal","lightred","--high","blue"] 10
