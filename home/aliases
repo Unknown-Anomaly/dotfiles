@@ -129,6 +129,7 @@ alias pacrm='pacman -R'                         # '[r]e[m]ove'                  
 alias paci='packer -Si'                         # '[i]nfo'                      - show information about a package
 alias pacu='packer -Syu'                        # '[u]pdate'                    - upgrade all packages to newest version
 alias pacrlo='sudo pacman -Rs $(pacman -Qtdq)'  # '[r]emove [l]ocal [o]rphans'  - remove all local orphans
+alias paccl='sudo pacman -Scc'                  # '[c][l]ear cache              - removes stored files in the cache
 
 # funny commands
 
