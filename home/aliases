@@ -56,7 +56,7 @@ alias dt="date +%F%nDay\ %j\ Week\ %W'.'%u%n%T"     # prints out current date in
 alias sys="uname -smrno && date +%F'\'%T && acpi"   # prints out system information as well as the current date
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
-# [xo]rg [p]roblems [r]eport
+# [xo]rg [p]roblem [r]eport
 alias xopr='echo "Xorg Warnings:" && cat /var/log/Xorg.0.log | ack "] \(WW\)" && echo "\nXorg Errors:" && cat /var/log/Xorg.0.log | ack "] \(EE\)"'
 
 # privileged access
@@ -114,7 +114,7 @@ alias lr='ls -R'                    # recursive ls
 alias lx='ll -BX'                   # sort by extension
 alias lz='ll -rS'                   # sort by size
 alias lt='ll -rt'                   # sort by date
-alias lm='la | less'
+alias lm='la | less' 
 
 # ls++
 #alias lsp="ls++"
@@ -132,6 +132,7 @@ alias pacrlo='sudo pacman -Rs $(pacman -Qtdq)'  # '[r]emove [l]ocal [o]rphans'  
 alias paccl='sudo pacman -Scc'                  # '[c][l]ear cache              - removes stored files in the cache
 
 # funny commands
+alias sl='sl'
 
 # bash aliases
 if [ -f ~/.aliases_personal ]; then
