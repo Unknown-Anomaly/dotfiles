@@ -1,6 +1,8 @@
 #!/bin/sh
 # ~/.xinitrc
 
+# This is able to start xfce4, gnome, kde4, xmonad, awesome, and xterm if given no invoke parameter.
+
 # Font setup
 xset +fp /usr/share/fonts/local
 xset fp rehash
