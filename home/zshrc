@@ -54,11 +54,6 @@ man() {
 
 # fortune!
 # goo.gl/rQBxa
-if [ x$DISPLAY != x ]
-then
-	archey
-else
-	archey
-fi
+if [ -f /usr/bin/archey ]; then . archey; fi
 
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
