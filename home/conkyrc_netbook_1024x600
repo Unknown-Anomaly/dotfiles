@@ -95,3 +95,10 @@ ${downspeedgraph wlan0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlan0 15,12
 wlan0: ${addr wlan0} ${alignr} ${wireless_ap wlan0}
 $endif#
 #
+${if_existing /proc/net/route wlp2s0}#
+$alignc ${wireless_essid wlp2s0}
+Down: ${downspeed wlan0} $alignr Up: ${upspeed wlp2s0} 
+${downspeedgraph wlp2s0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlp2s0 15,120 000000 00FE00}${color grey}
+wlp2s0: ${addr wlp2s0} ${alignr} ${wireless_ap wlp2s0}
+$endif#
+#
