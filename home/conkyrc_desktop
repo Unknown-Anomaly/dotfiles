@@ -4,7 +4,7 @@ own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 # Use double buffering (reduces flicker, may not work for everyone)
-# double_buffer yes
+double_buffer yes
 # fiddle with window
 use_spacer right
 # Use Xft?
@@ -13,7 +13,7 @@ xftfont tamsyn:size=10 #tamsyn, termsyn, monospace
 xftalpha 0.8
 text_buffer_size 2048
 # Update interval in seconds
-update_interval 0.4
+update_interval 0.5
 # Update interval in seconds when conky is running on battery power
 update_interval_on_battery 2
 # Draw shades?
