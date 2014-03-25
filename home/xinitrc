@@ -37,9 +37,16 @@ case "$1" in
 	;;
     xmonad )
 	# initalizes trayer to hold running applications
+<<<<<<< HEAD
 	trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x000000 --height 12 &
 	feh --bg-scale ~/Pictures/Desktop/current.jpg &
 
+=======
+	trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x191970 --height 12 &
+	xsetroot -solid midnightblue &
+	
+	wicd-gtk -t & # starts wicd-gtk daemon manager
+>>>>>>> 1e2960c640f2bd87af159bdc692c0ab465566355
 	conky -p 6 &
 
 	exec xmonad >> ~/.cache/wm_xmonad_stdout 2> ~/.cache/wm_xmonad_stderr
