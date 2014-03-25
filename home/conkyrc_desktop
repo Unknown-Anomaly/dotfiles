@@ -35,8 +35,8 @@ maximum_width 500
 # Text alignment, other possible values are commented
 alignment top_left
 # Gap between borders of screen and text
-gap_x 1580
-gap_y 35
+gap_x 3500
+gap_y 20
 total_run_times 0
 
 # stuff after 'TEXT' will be formatted on screen
@@ -69,6 +69,7 @@ ${top name 5}$alignr${top cpu 5}%    ${top mem 5}%    ${top pid 5}
 ${top name 6}$alignr${top cpu 6}%    ${top mem 6}%    ${top pid 6}
 ${top name 7}$alignr${top cpu 7}%    ${top mem 7}%    ${top pid 7}
 ${top name 8}$alignr${top cpu 8}%    ${top mem 8}%    ${top pid 8}
+${top name 9}$alignr${top cpu 9}%    ${top mem 9}%    ${top pid 9}
 Running processes: ${running_processes}/${processes}
 ${color yellow}NETWORK ${hr 2}${color grey}
 ${if_existing /proc/net/route eth0}#
