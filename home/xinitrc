@@ -36,7 +36,7 @@ case "$1" in
         exec kdeinit4 >> ~/.cache/wm_kde4_stdout 2> ~/.cache/wm_kde4_stderr
 	;;
     xmonad )
-	# initalizes trayer to hold running application
+	# initalizes trayer to hold running applications
 	trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x000000 --height 12 &
 	feh --bg-scale ~/Pictures/Desktop/current.jpg
 	
