@@ -38,7 +38,7 @@ case "$1" in
     xmonad )
 	# initalizes trayer to hold running applications
 	trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x000000 --height 12 &
-	feh --bg-scale ~/Pictures/Desktop/current.jpg
+	feh --bg-center ~/Pictures/Desktop/current.jpg
 	
 	wicd-gtk -t & # starts wicd-gtk daemon manager
 	conky -p 6 &
