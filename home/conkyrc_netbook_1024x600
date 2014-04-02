@@ -9,7 +9,7 @@ double_buffer yes
 use_spacer right
 # Use Xft?
 use_xft yes
-xftfont tamsyn:size=8 #tamsyn, termsyn, monospace
+xftfont tamsyn:size=7 #tamsyn, termsyn, monospace
 xftalpha 0.8
 text_buffer_size 2048
 # Update interval in seconds
