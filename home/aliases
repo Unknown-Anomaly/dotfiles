@@ -21,7 +21,7 @@ alias ping='ping -c 4'
 # shortcuts
 alias c='clear'
 alias ccd='cd ~ && clear'
-alias e='exit'
+alias qq='exit'
 alias ka='killall'
 alias x='xinit'
 alias ra='ranger'
