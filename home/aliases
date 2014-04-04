@@ -128,10 +128,10 @@ alias pac='packer -S'                           # default action                
 alias pacs='packer -Ss'                         # '[s]earch all'                - search aur and regular stream for packages
 alias pacsaur='packer -Ss --auronly'            # '[s]earch [aur]'              - search only the aur for packages
 alias pacsreg='pacman -Ss'                      # '[s]earch [reg]ular stream'   - search only the regular stream for packages
-alias pacrm='pacman -R'                         # '[r]e[m]ove'                  - uninstall one or more packages
+alias pacrm='sudo pacman -R'                         # '[r]e[m]ove'                  - uninstall one or more packages
 alias paci='packer -Si'                         # '[i]nfo'                      - show information about a package
-alias pacu='packer -Syu'                        # '[u]pdate'                    - upgrade all packages to newest version
-alias pacrlo='sudo pacman -Rs $(pacman -Qtdq)'  # '[r]emove [l]ocal [o]rphans'  - remove all local orphans
+alias pacu='sudo packer -Syu'                        # '[u]pdate'                    - upgrade all packages to newest version
+alias pacrlo='sudo sudo pacman -Rs $(pacman -Qtdq)'  # '[r]emove [l]ocal [o]rphans'  - remove all local orphans
 alias paccl='sudo pacman -Scc'                  # '[c][l]ear cache              - removes stored files in the cache
 
 # funny commands
