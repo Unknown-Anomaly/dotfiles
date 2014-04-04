@@ -55,6 +55,8 @@ alias sshot="scrot ~/Pictures/Screenshots/%F-%T_$wx$h.png"  # takes a screen sho
 alias dt="date +%F%nDay\ %j\ Week\ %W'.'%u%n%T"     # prints out current date in style
 alias sys="uname -smrno && date +%F'\'%T && acpi"   # prints out system information as well as the current date
 alias xfix='xrandr --output DVI-I-1 --left-of DVI-I-2'                                # Fixes display of xmonad for two 1920x1080 monitors
+alias painobar='pianobar'
+alias pb='pianobar'
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
 # [xo]rg [p]roblem [r]eport
@@ -133,7 +135,7 @@ alias pacrlo='sudo pacman -Rs $(pacman -Qtdq)'  # '[r]emove [l]ocal [o]rphans'  
 alias paccl='sudo pacman -Scc'                  # '[c][l]ear cache              - removes stored files in the cache
 
 # funny commands
-alias sl='sl'
+alias ls='sl'
 
 # bash aliases
 if [ -f ~/.aliases_personal ]; then
