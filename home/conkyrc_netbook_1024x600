@@ -50,7 +50,7 @@ System Uptime:$alignr $uptime
 Battery: $battery_time$alignr$battery_short
 ${color yellow}CPU ${hr 2}${color grey}
 ${alignc}${cpugraph cpu0 25,250 00FF00 003300 -t}
-$alignc${color FF6E00}${cpu cpu1}%     ${color CB0C29}${cpu cpu2}%     ${color 49A835}${cpu cpu3}%     ${color 2D7DB3}${cpu cpu4}%
+$alignc${color FF6E00}${cpu cpu1}%     ${color CB0C29}${cpu cpu2}%
 ${color yellow}RAM${color D13D77}  $alignc ${mem} / ${memmax} $alignr $memperc% ${color grey}
 ${membar}
 ${color yellow}SWAP${color 49A835} $alignc ${swap} / ${swapmax} $alignr ${swapperc}% ${color grey}
@@ -76,20 +76,27 @@ ${if_existing /proc/net/route eth0}#
 $alignc ${wireless_essid eth0}
 Down: ${downspeed eth0}$alignr Up: ${upspeed eth0} 
 ${downspeedgraph eth0 15,120 000000 FE0000} ${alignr}${upspeedgraph eth0 15,120 000000 00FE00}${color grey}
-eth0: ${addr eth0} ${alignr} ${wireless_ap eth0}
+eth0: ${addr eth0} ${alignr} MAC: ${wireless_ap eth0}
+$endif#
+#
+${if_existing /proc/net/route enp3s0}#
+$alignc ${wireless_essid enp3s0}
+Down: ${downspeed enp3s0}$alignr Up: ${upspeed enp3s0} 
+${downspeedgraph enp3s0 15,120 000000 FE0000} ${alignr}${upspeedgraph enp3s0 15,120 000000 00FE00}${color grey}
+enp3s0: ${addr enp3s0} ${alignr} MAC: ${wireless_ap enp3s0}
 $endif#
 #
 ${if_existing /proc/net/route wlan0}#
 $alignc ${wireless_essid wlan0}
 Down: ${downspeed wlan0} $alignr Up: ${upspeed wlan0} 
 ${downspeedgraph wlan0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlan0 15,120 000000 00FE00}${color grey}
-wlan0: ${addr wlan0} ${alignr} ${wireless_ap wlan0}
+wlan0: ${addr wlan0} ${alignr} MAC: ${wireless_ap wlan0}
 $endif#
 #
-${if_existing /proc/net/route wlp2s0}#
-$alignc ${wireless_essid wlp2s0}
-Down: ${downspeed wlan0} $alignr Up: ${upspeed wlp2s0} 
-${downspeedgraph wlp2s0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlp2s0 15,120 000000 00FE00}${color grey}
-wlp2s0: ${addr wlp2s0} ${alignr} ${wireless_ap wlp2s0}
+${if_existing /proc/net/route wlp1s0}#
+$alignc ${wireless_essid wlp1s0}
+Down: ${downspeed wlp1s0} $alignr Up: ${upspeed wlp1s0} 
+${downspeedgraph wlp1s0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlp1s0 15,120 000000 00FE00}${color grey}
+wlp1s0: ${addr wlp1s0} ${alignr} MAC: ${wireless_ap wlp1s0}
 $endif#
 #
