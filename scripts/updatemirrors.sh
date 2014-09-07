@@ -15,7 +15,7 @@ $su cp /etc/pacman.d/mirrorlist.orig /etc/pacman.d/mirrorlist
 echo " Backing up mirrorlist..."
 $su cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo " Running rankmirrors..."
-$su rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+$su rankmirrors -n 8 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 
 $su cat /etc/pacman.d/mirrorlist
 

@@ -135,7 +135,7 @@ alias pacrlo='sudo sudo pacman -Rs $(pacman -Qtdq)'  # '[r]emove [l]ocal [o]rpha
 alias paccl='sudo pacman -Scc'                  # '[c][l]ear cache              - removes stored files in the cache
 
 # funny commands
-alias ls='sl'
+# alias ls='sl'
 
 # bash aliases
 if [ -f ~/.aliases_personal ]; then
