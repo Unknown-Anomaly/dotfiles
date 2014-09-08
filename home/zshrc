@@ -54,6 +54,6 @@ man() {
 
 # fortune!
 # goo.gl/rQBxa
-if [ -f /usr/bin/archey ]; then . archey; fi
+if [ -f /usr/bin/archey ]; then archey; fi
 
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
