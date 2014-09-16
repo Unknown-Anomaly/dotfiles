@@ -20,8 +20,8 @@ sleep 12 && wicd & #wicd daemon
 
 
 # Fix gui java apps displaying in xdisplays
-_JAVA_AWT_WM_NONPARENTING=1
-export _JAVA_AWT_WM_NONPARENTING
+# _JAVA_AWT_WM_NONPARENTING=1
+# export _JAVA_AWT_WM_NONPARENTING
 
 numlockx on &
 
