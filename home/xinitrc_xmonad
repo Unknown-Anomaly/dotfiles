@@ -1,0 +1,34 @@
+#!/bin/sh
+# ~/.xinitrc
+
+# This is targeted to start xmonad
+
+# Font setup
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+# Correct urxvt themeing.
+xrdb -merge ~/.Xresources &
+
+#Start daemons and managers
+start-pulseaudio-x11
+thunar --daemon & #thunar daemon
+urxvtd -q -o -f & #urxvt daemon
+xscreensaver -no-splash & #xscreensaver daemon
+sleep 60 && dropboxd start & #dropbox
+sleep 12 && wicd & #wicd daemon
+
+
+# Fix gui java apps displaying in xdisplays
+# _JAVA_AWT_WM_NONPARENTING=1
+# export _JAVA_AWT_WM_NONPARENTING
+
+numlockx on &
+
+# initalizes trayer to hold running applications
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x000000 --height 12 &
+feh --bg-center ~/Pictures/Desktop/current.jpg
+wicd-gtk -t & # starts wicd-gtk daemon manager
+conky -p 10 &
+
+exec xmonad >> ~/.cache/wm_xmonad_stdout 2> ~/.cache/wm_xmonad_stderr
