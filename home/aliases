@@ -55,7 +55,6 @@ alias sshot="scrot ~/Pictures/Screenshots/%F-%T_$wx$h.png"  # takes a screen sho
 alias dt="date +%F%nDay\ %j\ Week\ %W'.'%u%n%T"     # prints out current date in style
 alias sys="uname -smrno && date +%F'\'%T && acpi"   # prints out system information as well as the current date
 alias xfix='xrandr --output DVI-I-1 --left-of DVI-I-2'                                # Fixes display of xmonad for two 1920x1080 monitors
-alias painobar='pianobar'
 alias pb='pianobar'
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
@@ -66,9 +65,8 @@ alias xopr='echo "Xorg Warnings:" && cat ~/.local/share/xorg/Xorg.0.log | ack "]
 if [ $UID -ne 0 ]; then
     alias scat='sudo cat'
     alias svim='sudo vim'
-    alias root='sudo su'
     alias reboot='sudo systemctl reboot'
-    alias halt='sudo systemctl poweroff'
+    alias poweroff='sudo systemctl poweroff'
     alias suspend='gksudo pm-suspend & lock'
     alias hibernate='gksudo pm-suspend hybrid & lock'
 fi
