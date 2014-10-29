@@ -59,7 +59,7 @@ alias pb='pianobar'
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
 # [xo]rg [p]roblem [r]eport
-alias xopr='echo "Xorg Warnings:" && cat ~/.local/share/xorg/Xorg.0.log | ack "] \(WW\)" && echo "\nXorg Errors:" && cat /var/log/Xorg.0.log | ack "] \(EE\)"'
+alias xopr='echo "Xorg Warnings:" && cat ~/.local/share/xorg/Xorg.0.log | ack "] \(WW\)" && echo "\nXorg Errors:" && cat ~/.local/share/xorg/Xorg.0.log | ack "] \(EE\)"'
 
 # privileged access
 if [ $UID -ne 0 ]; then

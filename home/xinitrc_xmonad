@@ -23,7 +23,7 @@ sleep 4 && wicd & #wicd daemon
 # _JAVA_AWT_WM_NONPARENTING=1
 # export _JAVA_AWT_WM_NONPARENTING
 
-numlockx on &
+# numlockx on &
 
 # initalizes trayer to hold running applications
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x000000 --height 12 &
