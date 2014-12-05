@@ -1,7 +1,7 @@
 Config {
     font = "-misc-dejavu sans mono-medium-r-normal-*-10-120-100-100-m-0-iso10646-1"
         , position = TopSize L 90 18
-        , commands = [ Run CoreTemp ["-t", "Temp: <core0> <core1>C",
+        , commands = [ Run CoreTemp ["-t", "<core0>C",
                         "-L", "40", "-H", "65",
                         "-l", "lightblue", "-n"   , "gray90", "-h", "red"] 50
                     , Run BatteryP ["BAT0"]
@@ -13,11 +13,13 @@ Config {
                    , Run MultiCpu ["-t","<total>%"] 10
                    , Run Memory ["-t","Mem: <usedratio>%"] 10
                    , Run Swap [] 10
+                   , Run Com "~/.wmo_wireless.sh" [] "wifi" 10
+                   , Run Com "~/.wmo_volume.sh" [] "vol" 10
                    , Run Wireless "wlan0" ["-L","10","-H","32","--normal","lightred","--high","blue"] 10
                    , Run Network "eth0" ["-L","0","-H","32","--normal","lightblue","--high","lightgreen"] 10
                    , Run Date "%H:%M:%S %a %_d %b %Y" "date" 10
                    , Run Kbd [("us(colemak)", "CO"), ("us(dvorak)", "DV"), ("us", "US")]
                    , Run StdinReader
                    ]
-        , template = "%StdinReader% }{ %multicpu% | %coretemp% | %memory% | %swap% | %wlan0wi% | %eth0% | %battery% | %kbd% | <fc=#ee9a00>%date%</fc>"
+        , template = "%StdinReader% }{ %multicpu% | %coretemp% | %memory% | %swap% | %vol%  %battery% | %kbd% | <fc=#ee9a00>%date%</fc>"
       }

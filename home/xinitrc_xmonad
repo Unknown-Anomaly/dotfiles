@@ -11,13 +11,12 @@ xset fp rehash
 xrdb -merge ~/.Xresources &
 
 #Start daemons and managers
-start-pulseaudio-x11
+# start-pulseaudio-x11
 thunar --daemon & #thunar daemon
 urxvtd -q -o -f & #urxvt daemon
 xscreensaver -no-splash & #xscreensaver daemon
-sleep 10 && dropboxd start & #dropbox
+# sleep 10 && dropboxd start & #dropbox
 sleep 4 && wicd & #wicd daemon
-
 
 # Fix gui java apps displaying in xdisplays
 # _JAVA_AWT_WM_NONPARENTING=1

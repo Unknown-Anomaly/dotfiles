@@ -35,14 +35,14 @@ maximum_width 360
 # Text alignment, other possible values are commented
 alignment top_left
 # Gap between borders of screen and text
-gap_x 755
-gap_y 35
+gap_x 772
+gap_y 18
 #total_run_times 0
 
 # stuff after 'TEXT' will be formatted on screen
  
 TEXT
-${color grey}Today is $alignr${exec date +%F'\'%T'\'%j'd\'%W'w\'%u}
+${color grey}Today is $alignr${exec date +%F' - '%T' - '%W'w '%j'd '%u}
 ${color red}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr$nodename
 Distro$alignr$kernel on $machine
@@ -100,3 +100,5 @@ ${downspeedgraph wlp1s0 15,120 000000 FE0000} ${alignr}${upspeedgraph wlp1s0 15,
 wlp1s0: ${addr wlp1s0} ${alignr} MAC: ${wireless_ap wlp1s0}
 $endif#
 #
+#${color red}TAIL${hr 2}${color grey}
+#${tail ~/.cache/wm_xmonad_stdout 15}

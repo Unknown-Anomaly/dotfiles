@@ -61,6 +61,7 @@ tabConfig = defaultTheme {
 myKeys conf = M.fromList $
     [ ((controlMask             , xK_Print   ), spawn "sleep 0.2; scrot -s")
     , ((myModMask .|. shiftMask , xK_l       ), spawn "xscreensaver-command -lock")
+    -- , ((XF86ScreenSaver                      ), spawn "xscreensaver-command -lock")
     , ((myModMask               , xK_Left    ), prevWS)
     , ((myModMask               , xK_Right   ), nextWS)
     , ((myModMask .|. shiftMask , xK_Left    ), shiftToPrev)
@@ -70,17 +71,20 @@ myKeys conf = M.fromList $
     , ((myModMask               , xK_p       ), spawn "exe=`dmenu_path_c | yeganesh` && eval \"exec $exe\"")    -- Launch program with yeganesh
     -- == Use of audio media buttons to control sound == --
     , ((0, 0x1008FF11                        ), spawn "amixer set Master 1-")        -- Volume down
+    -- , ((XF86AudioLowerVolume                 ), spawn "amixer set Master 1-")        -- Volume down
     , ((0, 0x1008FF13                        ), spawn "amixer set Master 1+")        -- Volume up
+    -- , ((XF86AudioRaiseVolume                 ), spawn "amixer set Master 1+")        -- Volume up
     , ((0, 0x1008FF12                        ), spawn "amixer set Master toggle")    -- Volume mute toggle
+    -- , ((XF86AudioMute                        ), spawn "amixer set Master toggle")    -- Volume mute toggle
     -- == Mimic Alt-Tab focus switching behavior == --
     , ((myModMask               , xK_Tab     ), windows S.swapDown)                  -- modM-tab | modM-shift-tab
     , ((myModMask .|. shiftMask , xK_Tab     ), windows S.swapUp)
     -- == Default xmonad controls == --
-    , ((myModMask               , xK_j       ), windows S.focusDown)                 -- modM-j | modM-k
-    , ((myModMask               , xK_k       ), windows S.focusUp)
+    , ((myModMask               , xK_k       ), windows S.focusDown)                 -- modM-j | modM-k
+    , ((myModMask               , xK_j       ), windows S.focusUp)
     -- Swap the focused window with the next/prev window
-    , ((myModMask .|. shiftMask , xK_j       ), windows S.swapDown)                  -- modM-Shift-j / modM-Shift-k
-    , ((myModMask .|. shiftMask , xK_k       ), windows S.swapUp)
+    , ((myModMask .|. shiftMask , xK_k       ), windows S.swapDown)                  -- modM-Shift-j / modM-Shift-k
+    , ((myModMask .|. shiftMask , xK_j       ), windows S.swapUp)
     -- == Other functions == --
     , ((myModMask .|. shiftMask , xK_q       ), io (exitWith ExitSuccess))           -- modM-shift-q, Quit
     , ((myModMask               , xK_q       ), broadcastMessage ReleaseResources >> restart "xmonad" True)               -- modM-q, restart
