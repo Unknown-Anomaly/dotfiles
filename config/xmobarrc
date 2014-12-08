@@ -1,6 +1,6 @@
 Config {
   -- appearance
-    font        = "Tamsyn:size=9:antialias=true"
+    font        = "Tamsyn:size=12:antialias=true"
   , bgColor     = "black"
   , fgColor     = "#646464"
   , position    = TopW L 100
@@ -10,14 +10,22 @@ Config {
   -- layout
   , template = "%StdinReader% }{| %multicpu% | %coretemp% | %memory% | %wlp1s0% | %vol% | %battery% | %kbd% | %date%"
 
+  -- general behavior
+  , lowerOnStart =     True    -- send to bottom of window stack on start
+  , hideOnStart =      False   -- start with window unmapped (hidden)
+  , allDesktops =      True    -- show on all desktops
+  , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+  , pickBroadest =     False   -- choose widest display (multi-monitor)
+  , persistent =       True    -- enable/disable hiding (True = disabled)
 
+  -- plugins 
   , commands = [ Run CoreTemp ["-t", "<core0>C",
                      "-L", "40", "-H", "65",
                      "-l", "lightblue", "-n"   , "gray90", "-h", "red"] 50
                , Run BatteryP ["BAT0"]
-                     ["-t", "<left>% <acstatus>",
+                     ["-t", "<acstatus><left>%",
                      "-L", "10", "-H", "80", "-p", "3",
-                     "--", "-i", "<fc=green>AC</fc>", "-O", "<fc=blue>+</fc>", "-o", "<fc=purple>-</fc>",
+                     "--", "-i", "<fc=green>|</fc>", "-O", "<fc=blue>+</fc>", "-o", "<fc=purple>-</fc>",
                      "-L", "-30", "-H", "-10",
                      "-l", "red", "-m", "blue", "-h", "green"] 180
                , Run MultiCpu ["-t","<total>%"] 10
