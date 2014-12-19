@@ -60,6 +60,10 @@ ${color red}/${color 00FEFE} $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_us
 ${fs_bar /}
 ${color red}/home${color 00FEFE} $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home}% ${color grey}
 ${fs_bar /home}
+# ${if_existin /dev/sdb}#
+# ${color red}/dev/sdb${color 00FEFE}$alignc${fs_used /dev/sdb} / {fs_size /dev/sdb} $alignr ${fs_used_perc /dev/sdb}% ${color grey}
+# ${fs_bar /dev/sdb}
+# $endif#
 #
 ${color red}PROCESSES ${hr 2}${color grey}
 ${top name 1}$alignr${top cpu 1}%    ${top mem 1}%    ${top pid 1}

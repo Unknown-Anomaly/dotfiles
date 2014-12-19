@@ -23,6 +23,7 @@ fi
 
 # variables
 export EDITOR="vim"
+unset GREP_OPTIONS
 
 # ssh
 #eval $(ssh-agent)
