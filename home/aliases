@@ -56,6 +56,9 @@ alias dt="date +%F%nDay\ %j\ Week\ %W'.'%u%n%T"     # prints out current date in
 alias sys="uname -smrno && date +%F'\'%T && acpi"   # prints out system information as well as the current date
 alias xfix='xrandr --output DVI-I-1 --left-of DVI-I-2'                                # Fixes display of xmonad for two 1920x1080 monitors
 alias pb='pianobar'
+alias Vup='amixer set Master 4+'
+alias Vdn='amixer set Master 4-'
+alias Vtg='amixer set Master toggle'
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
 # [xo]rg [p]roblem [r]eport
