@@ -59,7 +59,7 @@ alias pb='pianobar'
 alias Vup='amixer set Master 4+'
 alias Vdn='amixer set Master 4-'
 alias Vtg='amixer set Master toggle'
-alias wpafix='sudo wpa_supplicant -iwlp1s0 -c./wpa.conf'    # Requires a configuration file ~/wpa.conf to be created with wpa_passphrase <essid> <passphrase>
+alias wpafix='sudo wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlp1s0'                  # Requires a configuration file ~/wpa.conf to be created with wpa_passphrase <essid> <passphrase>
 
 # provides de-bug for troublesome xorg configuration, prints out all lines with warnings then all lines with errors
 # [xo]rg [p]roblem [r]eport

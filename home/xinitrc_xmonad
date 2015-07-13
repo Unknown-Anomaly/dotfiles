@@ -27,7 +27,7 @@ export _JAVA_AWT_WM_NONPARENTING
 # initalizes trayer to hold running applications
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \ --expand true --width 20 --transparent true --tint 0x000000 --height 12 &
 feh --bg-max ~/Pictures/Desktop/current.jpg
-wicd-gtk -t & # starts wicd-gtk daemon manager
+# wicd-gtk -t & # starts wicd-gtk daemon manager
 conky -p 2 &
 
 exec xmonad >> ~/.cache/wm_xmonad_stdout 2> ~/.cache/wm_xmonad_stderr
