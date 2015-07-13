@@ -8,7 +8,8 @@ Config {
   , borderColor = "#646464"
 
   -- layout
-  , template = "%StdinReader% }{| %multicpu% | %coretemp% | %memory% | %wlp1s0% | %vol% | %battery% | %kbd% | %date%"
+  -- , template = "%StdinReader% }{| %multicpu% | %coretemp% | %memory% | %wlp1s0% | %vol% | %battery% | %kbd% | %date%"
+  , template = "%StdinReader% }{| %multicpu% | %memory% | %battery% | %kbd% | %date%"
 
   -- general behavior
   , lowerOnStart =     True    -- send to bottom of window stack on start
