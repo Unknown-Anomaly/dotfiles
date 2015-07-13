@@ -42,12 +42,12 @@ gap_y 30
 # stuff after 'TEXT' will be formatted on screen
  
 TEXT
-${color grey}Today is $alignr${exec date +%F' - '%T' - '%W'w '%j'd '%u}
+${color grey}Today is $alignr${exec date +%F' - '%Tz' - '%W'w '%j'd '%u}
 ${color red}SYSTEM ${hr 2}${color grey}
 Hostname:$alignr$nodename
 Distro$alignr$kernel on $machine
 System Uptime:$alignr $uptime
-Battery: $battery_time$alignr$battery_short
+Battery: $battery_time $alignr $battery_short
 ${color red}CPU ${hr 2}${color grey}
 ${alignc}${cpugraph cpu0 25,250 00FF00 003300 -t}
 $alignc${color FF6E00}${cpu cpu1}%     ${color CB0C29}${cpu cpu2}%

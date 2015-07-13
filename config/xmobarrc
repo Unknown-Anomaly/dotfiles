@@ -34,7 +34,7 @@ Config {
                , Run Swap [] 10
                , Run Com ".xmonad/x_volume" [] "vol" 10
                , Run Network "wlp1s0" ["-L","0","-H","32","--normal","lightblue","--high","green"] 10
-               , Run Date "<fc=#ee9a00>%H:%M:%S %a %_d %b %Y</fc>" "date" 10
+               , Run Date "<fc=#ee9a00>%H:%M:%Sz %a %_d %b %Y</fc>" "date" 10
                , Run Kbd [("us(colemak)", "<fc=green>CO</fc>"),
                      ("us(dvorak)" , "<fc=red>DV</fc>"),
                      ("us",          "<fc=blue>US</fc>")]
