@@ -1,7 +1,7 @@
 This git repo contains some files I tweak every now and then to get a better experience.
 
 /home
-# Located in $HOME
+# Resides in $HOME
 
 -aliases: contains a set of aliases I use in terminal to perform everyday tasks
 -bashrc: is my rc file for bash, it also redirects to aliases
@@ -15,12 +15,11 @@ This git repo contains some files I tweak every now and then to get a better exp
 -arch.list: a list of programs installed on my system for compatiblity checking, personal updating of multiple systems.
 
 /config
-# Not located in $HOME/
 
 -rc.lua: is my awesome config file, theme is not included as it uses default.
 
 /scripts
-# Located anywhere, these files are scripts I have either written or compiled from other sources to perform specific actions. 
+# A few odd scripts I have gathered or aquired over the years.
 
 -updatemirriors.sh: is a sh script I use to get the best and fastest mirrors for pacman.
 -minecraft.sh: is a script I wrote myself to aid in the starting of minecraft, this does backups to ~/Dropbox for online backup, ~/Games/Minecraft/Backup/ for offline backups.
